@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.4"
-# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
+gem "rails", "~> 7.0.0"
+gem "devise"
 gem "propshaft"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
