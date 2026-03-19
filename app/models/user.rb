@@ -21,6 +21,6 @@ class User < ApplicationRecord
     self.name = name.strip.titleize if name.present?
   end
 
-  devise :database_authenticatable, :registerable
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
