@@ -1,0 +1,19 @@
+<% flash.each do |type, message| %>
+  <% 
+    bg_color = case type.to_sym
+    when :notice then "bg-green-500/10 border-green-500/30 text-green-400"
+    when :alert then "bg-red-500/10 border-red-500/30 text-red-400"
+    else "bg-zinc-500/10 border-zinc-500/30 text-zinc-300"
+    end
+  %>
+
+  <div class="mb-4 px-4 py-3 rounded-xl border <%= bg_color %> flex items-center justify-between">
+    <span class="text-sm font-medium">
+      <%= message %>
+    </span>
+
+    <button onclick="this.parentElement.remove()" class="text-xs text-zinc-400 hover:text-white">
+      ✕
+    </button>
+  </div>
+<% end %>
