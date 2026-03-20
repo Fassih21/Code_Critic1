@@ -1968,3 +1968,11 @@ ActionView::Template::Error (undefined method 'title' for an instance of CodeFil
   
 app/views/projects/show.html.erb:89:in 'block in _app_views_projects_show_html_erb___431794834_12624'
 app/views/projects/show.html.erb:80:in '_app_views_projects_show_html_erb___431794834_12624'
+Started GET "/" for 127.0.0.1 at 2026-03-20 20:54:26 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:CodeCritic*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.8ms | Allocations: 384)
+Completed 200 OK in 1968ms (Views: 28.5ms | ActiveRecord: 0.0ms | Allocations: 4828)
+
+
