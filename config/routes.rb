@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :projects do
     resources :code_files, shallow: true do
       resource :review, shallow: true do
-        resources :comments, shallow: true
+        resources :comments, only:[:create], shallow: true
       end
     end
   end
