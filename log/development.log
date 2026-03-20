@@ -324,3 +324,155 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 1917ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 739)
 
 
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-20 15:08:11 +0500
+Started GET "/" for 127.0.0.1 at 2026-03-20 15:08:11 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:CodeCritic*/[0m
+Processing by Rails::WelcomeController#index as HTML
+Processing by Devise::SessionsController#new as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 20.2ms | Allocations: 442)
+Completed 200 OK in 3164ms (Views: 67.6ms | ActiveRecord: 0.0ms | Allocations: 11902)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1347.2ms | Allocations: 11136)
+  Rendered layout layouts/application.html.erb (Duration: 1586.7ms | Allocations: 19833)
+Completed 200 OK in 4948ms (Views: 1946.1ms | ActiveRecord: 23.8ms | Allocations: 32116)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 15:08:24 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.2ms | Allocations: 128)
+Completed 200 OK in 5278ms (Views: 25.7ms | ActiveRecord: 0.0ms | Allocations: 1484)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-20 15:08:40 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1458)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 2374)
+Completed 200 OK in 1929ms (Views: 50.2ms | ActiveRecord: 0.0ms | Allocations: 3654)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2026-03-20 15:08:56 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/users/sign_in" for 127.0.0.1 at 2026-03-20 15:09:13 +0500
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "remember_me" => "1"}, "commit" => "Sign in"}
+  [1m[36mUser Load (8.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:sessions,action:create*/[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 1935ms (ActiveRecord: 9.2ms | Allocations: 3797)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "remember_me" => "1"}, "commit" => "Sign in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 1077)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 1745)
+Completed 200 OK in 2442ms (Views: 22.4ms | ActiveRecord: 0.0ms | Allocations: 3135)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2026-03-20 15:09:27 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.5ms | Allocations: 1993)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 2705)
+Completed 200 OK in 2038ms (Views: 32.0ms | ActiveRecord: 0.0ms | Allocations: 3872)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-03-20 15:09:55 +0500
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Fassih", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account"}
+[31mUnpermitted parameter: :name. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000002610f1c6728>, params: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Fassih", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account", "controller" => "devise/registrations", "action" => "create"} }[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN /*application:CodeCritic,controller:registrations,action:create*/[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2 /*application:CodeCritic,controller:registrations,action:create*/[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[31mROLLBACK /*application:CodeCritic,controller:registrations,action:create*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.2ms | Allocations: 3492)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 4159)
+Completed 422 Unprocessable Entity in 2656ms (Views: 20.7ms | ActiveRecord: 7.7ms | Allocations: 12710)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-03-20 15:10:31 +0500
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Fassih ", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account"}
+[31mUnpermitted parameter: :name. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000002611166bce0>, params: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Fassih ", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account", "controller" => "devise/registrations", "action" => "create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application:CodeCritic,controller:registrations,action:create*/[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2 /*application:CodeCritic,controller:registrations,action:create*/[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK /*application:CodeCritic,controller:registrations,action:create*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.8ms | Allocations: 2596)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 3263)
+Completed 422 Unprocessable Entity in 2614ms (Views: 18.7ms | ActiveRecord: 1.4ms | Allocations: 10650)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-03-20 15:11:04 +0500
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Fassih Kamran ", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account"}
+[31mUnpermitted parameter: :name. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000002610ff36908>, params: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Fassih Kamran ", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account", "controller" => "devise/registrations", "action" => "create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application:CodeCritic,controller:registrations,action:create*/[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2 /*application:CodeCritic,controller:registrations,action:create*/[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK /*application:CodeCritic,controller:registrations,action:create*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 13.5ms | Allocations: 3375)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 4042)
+Completed 422 Unprocessable Entity in 2670ms (Views: 18.0ms | ActiveRecord: 1.3ms | Allocations: 11466)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-03-20 15:11:40 +0500
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Fassih Kamran", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account"}
+[31mUnpermitted parameter: :name. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00000261103037c0>, params: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Fassih Kamran", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account", "controller" => "devise/registrations", "action" => "create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application:CodeCritic,controller:registrations,action:create*/[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2 /*application:CodeCritic,controller:registrations,action:create*/[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK /*application:CodeCritic,controller:registrations,action:create*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 14.3ms | Allocations: 3375)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 4043)
+Completed 422 Unprocessable Entity in 2705ms (Views: 19.1ms | ActiveRecord: 1.4ms | Allocations: 11456)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-03-20 15:13:39 +0500
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Ahmad Kamran", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account"}
+[31mUnpermitted parameter: :name. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000002610b68b910>, params: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Ahmad Kamran", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account", "controller" => "devise/registrations", "action" => "create"} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*application:CodeCritic,controller:registrations,action:create*/[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2 /*application:CodeCritic,controller:registrations,action:create*/[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK /*application:CodeCritic,controller:registrations,action:create*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 2596)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 3263)
+Completed 422 Unprocessable Entity in 2656ms (Views: 13.9ms | ActiveRecord: 1.4ms | Allocations: 10669)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-03-20 15:15:16 +0500
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "fassih", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account"}
+[31mUnpermitted parameter: :name. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00000261100fe7e0>, params: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "fassih", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account", "controller" => "devise/registrations", "action" => "create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application:CodeCritic,controller:registrations,action:create*/[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2 /*application:CodeCritic,controller:registrations,action:create*/[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK /*application:CodeCritic,controller:registrations,action:create*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 17.2ms | Allocations: 3621)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 4288)
+Completed 422 Unprocessable Entity in 2644ms (Views: 22.1ms | ActiveRecord: 1.3ms | Allocations: 11749)
+
+
