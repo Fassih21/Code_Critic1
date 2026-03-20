@@ -1,0 +1,44 @@
+<nav class="sticky top-0 z-50 border-b border-white/[0.06] bg-[#0a0a0f]/80 backdrop-blur-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Logo / Brand -->
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 flex items-center justify-center text-white font-bold">
+          C
+        </div>
+        <span class="text-white font-semibold text-lg tracking-tight">
+          CodeCritic
+        </span>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex items-center gap-6 text-sm">
+        <%= link_to "Projects", projects_path, class: "text-zinc-400 hover:text-white transition-colors" %>
+        <%= link_to "New Project", new_project_path, class: "text-zinc-400 hover:text-white transition-colors" %>
+      </div>
+
+      <!-- Right Side (Auth / User) -->
+      <div class="flex items-center gap-4">
+        
+        <% if user_signed_in? %>
+          <span class="text-zinc-400 text-sm hidden sm:block">
+            <%= current_user.email %>
+          </span>
+
+          <%= button_to "Logout", destroy_user_session_path,
+              method: :delete,
+              class: "px-3 py-1.5 rounded-lg text-sm font-medium text-white bg-red-500/80 hover:bg-red-500 transition" %>
+
+        <% else %>
+          <%= link_to "Login", new_user_session_path,
+              class: "text-sm text-zinc-400 hover:text-white transition" %>
+
+          <%= link_to "Sign Up", new_user_registration_path,
+              class: "px-3 py-1.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 transition" %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</nav>

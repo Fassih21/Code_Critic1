@@ -1,0 +1,145 @@
+<%# app/views/projects/show.html.erb %>
+
+<div class="min-h-screen bg-[#0a0a0f] font-['DM_Sans',sans-serif]">
+  <%= render "shared/navbar" %>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <%= render "shared/flash" %>
+
+    <nav class="flex items-center gap-2 text-sm text-zinc-600 mb-8">
+      <%= link_to "Projects", projects_path, class: "hover:text-zinc-400 transition-colors" %>
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+      <span class="text-zinc-400"><%= @project.name %></span>
+    </nav>
+
+    <div class="rounded-2xl border border-white/[0.07] bg-white/[0.03] p-6 mb-8">
+      <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500/20 to-indigo-500/20 border border-violet-500/25 flex items-center justify-center shrink-0">
+            <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h1 class="text-white text-2xl font-semibold"><%= @project.name %></h1>
+            <p class="text-zinc-500 text-sm mt-1 leading-relaxed max-w-xl"><%= @project.description.presence || "No description provided." %></p>
+            <div class="flex items-center gap-4 mt-3">
+              <span class="text-xs text-zinc-600 flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                Created <%= @project.created_at.strftime("%B %d, %Y") %>
+              </span>
+              <span class="text-xs text-zinc-600 flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                <%= pluralize(@project.code_files.count, "file") %>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 shrink-0">
+          <%= link_to edit_project_path(@project), class: "inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-medium text-zinc-400 border border-white/10 hover:border-white/20 hover:text-white transition-all duration-200" do %>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+            </svg>
+            Edit
+          <% end %>
+          <%= link_to new_project_code_file_path(@project), class: "inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 shadow-lg shadow-violet-500/20 active:scale-[0.98] transition-all duration-200" do %>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+            Add Code File
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4 flex items-center justify-between">
+      <h2 class="text-white font-semibold text-lg">Code Files</h2>
+      <span class="text-xs text-zinc-600 bg-white/5 border border-white/10 rounded-full px-2.5 py-1"><%= @project.code_files.count %></span>
+    </div>
+
+    <% if @project.code_files.any? %>
+      <div class="rounded-2xl border border-white/[0.07] overflow-hidden">
+        <table class="w-full">
+          <thead>
+            <tr class="border-b border-white/[0.06] bg-white/[0.02]">
+              <th class="text-left text-xs font-medium text-zinc-500 uppercase tracking-wider px-5 py-3.5">File</th>
+              <th class="text-left text-xs font-medium text-zinc-500 uppercase tracking-wider px-5 py-3.5 hidden sm:table-cell">Language</th>
+              <th class="text-left text-xs font-medium text-zinc-500 uppercase tracking-wider px-5 py-3.5 hidden md:table-cell">Added</th>
+              <th class="text-left text-xs font-medium text-zinc-500 uppercase tracking-wider px-5 py-3.5 hidden md:table-cell">Review</th>
+              <th class="px-5 py-3.5"></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/[0.04]">
+            <% @project.code_files.order(created_at: :desc).each do |code_file| %>
+              <tr class="group hover:bg-white/[0.02] transition-colors duration-150">
+                <td class="px-5 py-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                      <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                      </svg>
+                    </div>
+                    <span class="text-white text-sm font-medium"><%= code_file.title %></span>
+                  </div>
+                </td>
+                <td class="px-5 py-4 hidden sm:table-cell">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+                    <%= code_file.language.presence || "Unknown" %>
+                  </span>
+                </td>
+                <td class="px-5 py-4 hidden md:table-cell">
+                  <span class="text-zinc-500 text-xs"><%= code_file.created_at.strftime("%b %d, %Y") %></span>
+                </td>
+                <td class="px-5 py-4 hidden md:table-cell">
+                  <% review = code_file.reviews.last %>
+                  <% if review %>
+                    <% status_classes = review.status == "completed" ? "bg-emerald-500/10 text-emerald-300 border-emerald-500/20" : "bg-amber-500/10 text-amber-300 border-amber-500/20" %>
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border <%= status_classes %>">
+                      <span class="w-1.5 h-1.5 rounded-full bg-current"></span>
+                      <%= review.status.capitalize %>
+                    </span>
+                  <% else %>
+                    <span class="text-zinc-600 text-xs">No review yet</span>
+                  <% end %>
+                </td>
+                <td class="px-5 py-4 text-right">
+                  <%= link_to project_code_file_path(@project, code_file), class: "inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors opacity-0 group-hover:opacity-100" do %>
+                    View
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+    <% else %>
+      <div class="rounded-2xl border border-dashed border-white/[0.1] bg-white/[0.02] flex flex-col items-center justify-center py-20 text-center">
+        <div class="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-4">
+          <svg class="w-7 h-7 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+          </svg>
+        </div>
+        <p class="text-zinc-400 text-sm font-medium mb-1">No code files yet</p>
+        <p class="text-zinc-600 text-xs mb-6">Upload your first file to get an AI review</p>
+        <%= link_to new_project_code_file_path(@project), class: "inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 shadow-lg shadow-violet-500/20 active:scale-[0.98] transition-all duration-200" do %>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+          Add First File
+        <% end %>
+      </div>
+    <% end %>
+
+  </main>
+</div>
