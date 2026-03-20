@@ -567,3 +567,333 @@ Processing by Devise::RegistrationsController#create as TURBO_STREAM
 Completed 422 Unprocessable Entity in 3690ms (Views: 19.6ms | ActiveRecord: 4.0ms | Allocations: 22205)
 
 
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:32:48 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:CodeCritic*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.4ms | Allocations: 384)
+Completed 200 OK in 2384ms (Views: 21.9ms | ActiveRecord: 0.0ms | Allocations: 4828)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-20 16:32:59 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 77.7ms | Allocations: 3388)
+  Rendered layout layouts/application.html.erb (Duration: 151.7ms | Allocations: 11805)
+Completed 200 OK in 2678ms (Views: 198.1ms | ActiveRecord: 17.6ms | Allocations: 18463)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2026-03-20 16:33:10 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.3ms | Allocations: 1994)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 2707)
+Completed 200 OK in 2741ms (Views: 35.4ms | ActiveRecord: 0.0ms | Allocations: 3875)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-03-20 16:33:36 +0500
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Fassih", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account"}
+[31mUnpermitted parameter: :name. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000001d878bf2be0>, params: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Fassih", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account", "controller" => "devise/registrations", "action" => "create"} }[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN /*application:CodeCritic,controller:registrations,action:create*/[0m
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2 /*application:CodeCritic,controller:registrations,action:create*/[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[31mROLLBACK /*application:CodeCritic,controller:registrations,action:create*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.0ms | Allocations: 2701)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 3368)
+Completed 422 Unprocessable Entity in 3284ms (Views: 17.1ms | ActiveRecord: 5.7ms | Allocations: 14409)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2026-03-20 16:34:04 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1438)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 3756)
+Completed 200 OK in 1267ms (Views: 12.7ms | ActiveRecord: 4.5ms | Allocations: 7151)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-03-20 16:34:28 +0500
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Fassih", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account"}
+[31mUnpermitted parameter: :name. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000001d87850d668>, params: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Fassih", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account", "controller" => "devise/registrations", "action" => "create"} }[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN /*application:CodeCritic,controller:registrations,action:create*/[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2 /*application:CodeCritic,controller:registrations,action:create*/[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK /*application:CodeCritic,controller:registrations,action:create*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 16.4ms | Allocations: 2604)
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 3271)
+Completed 422 Unprocessable Entity in 3061ms (Views: 31.8ms | ActiveRecord: 2.0ms | Allocations: 11124)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2026-03-20 16:35:51 +0500
+  
+ArgumentError (You need to supply at least one validation):
+  
+app/models/user.rb:7:in '<class:User>'
+app/models/user.rb:1:in '<main>'
+config/routes.rb:2:in 'block in <main>'
+config/routes.rb:1:in '<main>'
+Started GET "/users/sign_up" for 127.0.0.1 at 2026-03-20 16:36:56 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 1438)
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | Allocations: 3763)
+Completed 200 OK in 3597ms (Views: 37.8ms | ActiveRecord: 7.0ms | Allocations: 7145)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2026-03-20 16:38:37 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1438)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 3754)
+Completed 200 OK in 2668ms (Views: 22.4ms | ActiveRecord: 5.3ms | Allocations: 7167)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-03-20 16:39:04 +0500
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Fassih", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*application:CodeCritic,controller:registrations,action:create*/[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2 /*application:CodeCritic,controller:registrations,action:create*/[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Create (36.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id" /*application:CodeCritic,controller:registrations,action:create*/[0m  [["email", "[FILTERED]"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2026-03-20 11:39:08.370793"], ["updated_at", "2026-03-20 11:39:08.370793"], ["name", "Fassih"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[35mCOMMIT /*application:CodeCritic,controller:registrations,action:create*/[0m
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 3302ms (ActiveRecord: 44.5ms | Allocations: 10170)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:39:10 +0500
+Processing by Rails::WelcomeController#index as TURBO_STREAM
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.4ms | Allocations: 130)
+Completed 200 OK in 2417ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 780)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:39:16 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 2483ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 298)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-20 16:39:31 +0500
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:sessions,action:new*/[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 17ms (ActiveRecord: 1.5ms | Allocations: 2223)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-20 16:39:39 +0500
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:sessions,action:new*/[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 0.6ms | Allocations: 1747)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:39:42 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 2274ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 296)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-20 16:39:54 +0500
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:sessions,action:new*/[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.5ms | Allocations: 1739)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:39:57 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 15)
+Completed 200 OK in 2196ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 296)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:40:39 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:CodeCritic*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.8ms | Allocations: 384)
+Completed 200 OK in 2199ms (Views: 20.1ms | ActiveRecord: 0.0ms | Allocations: 4830)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-20 16:40:53 +0500
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:sessions,action:new*/[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 71ms (ActiveRecord: 13.9ms | Allocations: 8636)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:40:57 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.8ms | Allocations: 128)
+Completed 200 OK in 2588ms (Views: 5.6ms | ActiveRecord: 0.0ms | Allocations: 802)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2026-03-20 16:41:19 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:registrations,action:new*/[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 10ms (ActiveRecord: 0.6ms | Allocations: 1919)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:41:22 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 16)
+Completed 200 OK in 2462ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 299)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-20 16:41:37 +0500
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:sessions,action:new*/[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 16ms (ActiveRecord: 0.6ms | Allocations: 1759)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:41:41 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 15)
+Completed 200 OK in 2525ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 298)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-20 16:41:46 +0500
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:sessions,action:new*/[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 14ms (ActiveRecord: 1.2ms | Allocations: 1752)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:41:49 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 15)
+Completed 200 OK in 2464ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 296)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-20 16:42:02 +0500
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:sessions,action:new*/[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 8ms (ActiveRecord: 0.5ms | Allocations: 1740)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:42:05 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 2599ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 297)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:43:00 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 15)
+Completed 200 OK in 2930ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 297)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-20 16:43:08 +0500
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:sessions,action:new*/[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 10ms (ActiveRecord: 0.7ms | Allocations: 1710)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:43:11 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 2215ms (Views: 3.1ms | ActiveRecord: 0.0ms | Allocations: 296)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-20 16:43:26 +0500
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:sessions,action:new*/[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 8ms (ActiveRecord: 0.5ms | Allocations: 1737)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:43:29 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 15)
+Completed 200 OK in 2398ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 302)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:43:38 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 2167ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 299)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-20 16:43:53 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 43.5ms | Allocations: 3211)
+  Rendered layout layouts/application.html.erb (Duration: 82.3ms | Allocations: 11619)
+Completed 200 OK in 1550ms (Views: 100.3ms | ActiveRecord: 0.0ms | Allocations: 21733)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2026-03-20 16:44:05 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1993)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 2705)
+Completed 200 OK in 1129ms (Views: 17.0ms | ActiveRecord: 0.0ms | Allocations: 3681)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2026-03-20 16:44:08 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/users" for 127.0.0.1 at 2026-03-20 16:45:05 +0500
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "ahmad kamran", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account"}
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN /*application:CodeCritic,controller:registrations,action:create*/[0m
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2 /*application:CodeCritic,controller:registrations,action:create*/[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Create (16.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id" /*application:CodeCritic,controller:registrations,action:create*/[0m  [["email", "[FILTERED]"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2026-03-20 11:45:07.245684"], ["updated_at", "2026-03-20 11:45:07.245684"], ["name", "Ahmad Kamran"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT /*application:CodeCritic,controller:registrations,action:create*/[0m
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 1475ms (ActiveRecord: 20.4ms | Allocations: 11324)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:45:08 +0500
+Processing by Rails::WelcomeController#index as TURBO_STREAM
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | Allocations: 16)
+Completed 200 OK in 1098ms (Views: 2.4ms | ActiveRecord: 0.0ms | Allocations: 562)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-20 16:45:10 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 1170ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 295)
+
+
