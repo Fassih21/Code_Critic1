@@ -1,0 +1,9 @@
+<%= turbo_stream.append "comments" do %>
+  <%= render "comments/comment", comment: @comment %>
+<% end %>
+
+<%= turbo_stream.replace "comment-form" do %>
+  <%= render "comments/form", project: @project, code_file: @code_file %>
+<% end %>
+
+<%= turbo_stream.remove "no-comments" %>
