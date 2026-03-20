@@ -1295,3 +1295,39 @@ puma (7.2.0) lib/puma/request.rb:102:in 'Puma::Request#handle_request'
 puma (7.2.0) lib/puma/server.rb:503:in 'Puma::Server#process_client'
 puma (7.2.0) lib/puma/server.rb:262:in 'block in Puma::Server#run'
 puma (7.2.0) lib/puma/thread_pool.rb:182:in 'block in Puma::ThreadPool#spawn_thread'
+Started GET "/" for 127.0.0.1 at 2026-03-20 19:42:17 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:CodeCritic*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/railties-7.0.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.5ms | Allocations: 384)
+Completed 200 OK in 1155ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 4827)
+
+
+Started GET "/projects" for 127.0.0.1 at 2026-03-20 19:42:26 +0500
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:projects,action:index*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:6:in 'ProjectsController#index'
+  [1m[36mProject Load (1.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = $1 /*application:CodeCritic,controller:projects,action:index*/[0m  [["user_id", 1]]
+  ↳ app/controllers/projects_controller.rb:7:in 'block in ProjectsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  Rendered shared/_navbar.html.erb (Duration: 7.4ms | Allocations: 721)
+  Rendered shared/_flash.html.erb (Duration: 1.8ms | Allocations: 163)
+  Rendered projects/index.html.erb within layouts/application (Duration: 18.5ms | Allocations: 1636)
+  Rendered layout layouts/application.html.erb (Duration: 88.7ms | Allocations: 10051)
+Completed 200 OK in 2613ms (Views: 108.6ms | ActiveRecord: 33.3ms | Allocations: 24555)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2026-03-20 19:42:37 +0500
+Processing by ProjectsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:projects,action:new*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:24:in '_app_views_shared__navbar_html_erb___666631637_12400'
+  Rendered shared/_navbar.html.erb (Duration: 6.4ms | Allocations: 1581)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered projects/new.html.erb within layouts/application (Duration: 413.8ms | Allocations: 14088)
+  Rendered layout layouts/application.html.erb (Duration: 417.3ms | Allocations: 14756)
+Completed 200 OK in 2384ms (Views: 418.7ms | ActiveRecord: 2.8ms | Allocations: 16903)
+
+
