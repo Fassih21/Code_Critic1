@@ -86,7 +86,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
                       </svg>
                     </div>
-                    <span class="text-white text-sm font-medium"><%= code_file.title %></span>
+                    <span class="text-white text-sm font-medium"><%= code_file.language.presence || "Unknown" %></span>
                   </div>
                 </td>
                 <td class="px-5 py-4 hidden sm:table-cell">
@@ -98,7 +98,7 @@
                   <span class="text-zinc-500 text-xs"><%= code_file.created_at.strftime("%b %d, %Y") %></span>
                 </td>
                 <td class="px-5 py-4 hidden md:table-cell">
-                  <% review = code_file.reviews.last %>
+                  <% review = code_file.review %>
                   <% if review %>
                     <% status_classes = review.status == "completed" ? "bg-emerald-500/10 text-emerald-300 border-emerald-500/20" : "bg-amber-500/10 text-amber-300 border-amber-500/20" %>
                     <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border <%= status_classes %>">
@@ -110,7 +110,7 @@
                   <% end %>
                 </td>
                 <td class="px-5 py-4 text-right">
-                  <%= link_to project_code_file_path(@project, code_file), class: "inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors opacity-0 group-hover:opacity-100" do %>
+                  <%= link_to code_file_path(code_file), class: "inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors opacity-0 group-hover:opacity-100" do %>
                     View
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>

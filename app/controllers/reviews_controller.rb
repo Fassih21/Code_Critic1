@@ -1,33 +1,40 @@
 class ReviewsController < ApplicationController
-  before_action :set_project
-  before_action :set_code_file
+  before_action :set_code_file, only: [:show, :destroy]
   before_action :set_review, only: [:show, :destroy]
 
-  # GET /projects/:project_id/code_files/:code_file_id/reviews
-  def index
-    @reviews = @code_file.review.present? ? [@code_file.review] : []
-  end
+def create
+  code_file_id = params[:code_file_id].to_i
+  code_file = CodeFile.find(code_file_id)
+  code = code_file.content.to_s.dup
 
-  # GET /projects/:project_id/code_files/:code_file_id/reviews/:id
+  Review.where(code_file_id: code_file_id).destroy_all
+
+  result = AiReviewServices.new(code).analyze
+
+  review = Review.new
+  review.code_file_id = code_file_id
+  review.result = result.empty? ? [].to_json : result.to_json
+  review.status = "completed"
+  review.save!
+
+  redirect_to code_file_path(code_file), notice: "AI review generated"
+end
+
   def show
   end
 
-   def create
-    code = @code_file.source_code
-
-    result = AiReviewService.new(code).analyze
-
-    @review = @code_file.create_review(
-      result: result.to_json,
-      status: "completed"
-    )
-
-    redirect_to [@code_file.project, @code_file], notice: "AI review generated"
+  def destroy
+    @review.destroy
+    redirect_to code_file_path(@code_file), notice: "Review deleted"
   end
 
   private
 
   def set_code_file
     @code_file = CodeFile.find(params[:code_file_id])
+  end
+
+  def set_review
+    @review = @code_file.review
   end
 end

@@ -2,8 +2,8 @@
 require "net/http"
 require "json"
 
-class AiReviewService
-  API_URL = "https://api-inference.huggingface.co/models/bigcode/starcoder"
+class AiReviewServices
+    API_URL = "https://router.huggingface.co/models/bigcode/starcoder"
 
   def initialize(code)
     @code = code
@@ -59,18 +59,23 @@ class AiReviewService
       #{@code}
     PROMPT
   end
+def parse_response(response)
+  Rails.logger.debug("HF Raw Response: #{response.inspect}")
+  
+  # Agar response error hash hai
+  if response.is_a?(Hash) && response["error"]
+    return [{ "line" => 1, "issue" => "API Error: #{response["error"]}", "suggestion" => "Check your API key or try again" }]
+  end
 
-  def parse_response(response)
-    # HuggingFace returns text, not clean JSON
-    raw_text = response.first["generated_text"] rescue ""
+  # Normal response
+  raw_text = response.is_a?(Array) ? response.first&.dig("generated_text").to_s : ""
 
-    begin
-      JSON.parse(raw_text)
-    rescue
-      # fallback if parsing fails
-      [
-        { line: 1, issue: "AI response not structured", suggestion: raw_text.truncate(200) }
-      ]
+  begin
+    # JSON part extract karo prompt ke baad
+    json_match = raw_text.match(/\[.*\]/m)
+    json_match ? JSON.parse(json_match[0]) : [{ "line" => 1, "issue" => "Could not parse AI response", "suggestion" => raw_text.truncate(200) }]
+  rescue
+    [{ "line" => 1, "issue" => "AI response not structured", "suggestion" => raw_text.truncate(200) }]
     end
   end
 end

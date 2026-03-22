@@ -15,7 +15,7 @@
       <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
       </svg>
-      <span class="text-zinc-400"><%= @code_file.title %></span>
+      <span class="text-zinc-400"><%= @code_file.language %></span>
     </nav>
 
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
@@ -26,7 +26,7 @@
           </svg>
         </div>
         <div>
-          <h1 class="text-white font-semibold text-xl"><%= @code_file.title %></h1>
+          <h1 class="text-white font-semibold text-xl"><%= @code_file.language %></h1>
           <div class="flex items-center gap-3 mt-0.5">
             <span class="text-xs text-zinc-500"><%= @code_file.language.presence || "Unknown language" %></span>
             <span class="text-zinc-700">·</span>
@@ -35,7 +35,7 @@
         </div>
       </div>
 
-      <% last_review = @code_file.reviews.last %>
+      <% last_review = @code_file.review %>
       <% if last_review&.status == "pending" %>
         <div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-amber-300 bg-amber-500/10 border border-amber-500/20">
           <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
@@ -45,7 +45,7 @@
           AI Reviewing...
         </div>
       <% else %>
-        <%= button_to project_code_file_reviews_path(@project, @code_file),
+        <%= button_to code_file_review_path(@code_file),
               method: :post,
               data: { turbo_stream: true },
               class: "inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 shadow-lg shadow-violet-500/20 active:scale-[0.98] transition-all duration-200 cursor-pointer border-0" do %>
@@ -68,7 +68,7 @@
             <span class="w-3 h-3 rounded-full bg-amber-500/70"></span>
             <span class="w-3 h-3 rounded-full bg-emerald-500/70"></span>
           </div>
-          <span class="text-xs text-zinc-500 font-mono"><%= @code_file.title %></span>
+          <span class="text-xs text-zinc-500 font-mono"><%= @code_file.language %></span>
           <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-mono bg-indigo-500/10 text-indigo-300 border border-indigo-500/15">
             <%= @code_file.language.presence || "txt" %>
           </span>
@@ -200,27 +200,31 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
         </svg>
         <h2 class="text-white font-semibold">Comments</h2>
-        <span class="ml-auto text-xs text-zinc-600 bg-white/5 border border-white/10 rounded-full px-2.5 py-1"><%= @code_file.comments.count %></span>
+        <span class="ml-auto text-xs text-zinc-600 bg-white/5 border border-white/10 rounded-full px-2.5 py-1"><%= last_review&.comments&.count || 0 %></span>
       </div>
 
       <div class="p-6 border-b border-white/[0.06]" id="comment-form">
-        <%= form_with(model: [@project, @code_file, Comment.new], data: { turbo_stream: true }, class: "flex gap-3 items-start") do |f| %>
-          <div class="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white text-xs font-semibold shrink-0 mt-0.5">
-            <%= current_user.name.first.upcase rescue "?" %>
-          </div>
-          <div class="flex-1 flex gap-2">
-            <%= f.text_area :body, placeholder: "Add a comment…", rows: 1,
-                  class: "flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 resize-none focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 hover:border-white/20 transition-all duration-200" %>
-            <%= f.submit "Post", class: "shrink-0 px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 active:scale-[0.98] transition-all duration-200 cursor-pointer shadow-lg shadow-violet-500/20" %>
-          </div>
+        <% if last_review %>
+          <%= form_with(url: code_file_review_comments_path(@code_file), method: :post, data: { turbo_stream: true }, class: "flex gap-3 items-start") do |f| %>
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white text-xs font-semibold shrink-0 mt-0.5">
+              <%= current_user.name.first.upcase rescue "?" %>
+            </div>
+            <div class="flex-1 flex gap-2">
+              <%= f.text_area :content, placeholder: "Add a comment…", rows: 1,
+                    class: "flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-600 resize-none focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 hover:border-white/20 transition-all duration-200" %>
+              <%= f.submit "Post", class: "shrink-0 px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 active:scale-[0.98] transition-all duration-200 cursor-pointer shadow-lg shadow-violet-500/20" %>
+            </div>
+          <% end %>
+        <% else %>
+          <p class="text-zinc-600 text-sm text-center">Run an AI review first to enable comments.</p>
         <% end %>
       </div>
 
       <div id="comments" class="divide-y divide-white/[0.04]">
-        <%= render @code_file.comments.order(created_at: :asc) %>
+        <%= render last_review.comments.order(created_at: :asc) if last_review %>
       </div>
 
-      <% if @code_file.comments.empty? %>
+      <% if last_review.nil? || last_review.comments.empty? %>
         <div class="flex flex-col items-center justify-center py-12 text-center" id="no-comments">
           <p class="text-zinc-600 text-sm">No comments yet. Be the first to comment.</p>
         </div>
