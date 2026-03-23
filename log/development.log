@@ -5006,3 +5006,177 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 2284ms (Views: 123.9ms | ActiveRecord: 0.0ms | Allocations: 4544)
 
 
+Started GET "/" for 127.0.0.1 at 2026-03-23 14:17:20 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:CodeCritic*/[0m
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 2434ms (ActiveRecord: 0.0ms | Allocations: 2767)
+
+
+Started GET "/code_files/11" for 127.0.0.1 at 2026-03-23 14:17:25 +0500
+Processing by CodeFilesController#show as HTML
+  Parameters: {"id" => "11"}
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-23 14:17:26 +0500
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mCodeFile Load (3.1ms)[0m  [1m[34mSELECT "code_files".* FROM "code_files" WHERE "code_files"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:52:in 'CodeFilesController#set_code_file'
+  [1m[36mProject Load (3.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:47:in 'CodeFilesController#set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering code_files/show.html.erb within layouts/application
+  Rendered shared/_navbar.html.erb (Duration: 5.9ms | Allocations: 731)
+  Rendered shared/_flash.html.erb (Duration: 3.8ms | Allocations: 146)
+  [1m[36mReview Load (6.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."code_file_id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["code_file_id", 11], ["LIMIT", 1]]
+  ↳ app/views/code_files/show.html.erb:38:in '_app_views_code_files_show_html_erb__351577595_12440'
+  [1m[36mComment Count (6.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."review_id" = $1 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["review_id", 2]]
+  ↳ app/views/code_files/show.html.erb:203:in '_app_views_code_files_show_html_erb__351577595_12440'
+  [1m[36mComment Load (4.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = $1 ORDER BY "comments"."created_at" ASC /*application:CodeCritic,controller:code_files,action:show*/[0m  [["review_id", 2]]
+  ↳ app/views/code_files/show.html.erb:224:in '_app_views_code_files_show_html_erb__351577595_12440'
+  Rendered collection of templates [0 times] (Duration: 0.2ms | Allocations: 31)
+  [1m[36mComment Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."review_id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["review_id", 2], ["LIMIT", 1]]
+  ↳ app/views/code_files/show.html.erb:227:in '_app_views_code_files_show_html_erb__351577595_12440'
+  Rendered code_files/show.html.erb within layouts/application (Duration: 402.5ms | Allocations: 16192)
+  Rendered layout layouts/application.html.erb (Duration: 676.8ms | Allocations: 24602)
+Completed 200 OK in 4309ms (Views: 732.8ms | ActiveRecord: 147.3ms | Allocations: 44077)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 52.2ms | Allocations: 2633)
+  Rendered layout layouts/application.html.erb (Duration: 58.9ms | Allocations: 3347)
+Completed 200 OK in 3683ms (Views: 94.2ms | ActiveRecord: 5.4ms | Allocations: 49663)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-23 14:18:25 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:CodeCritic*/[0m
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 2311ms (ActiveRecord: 0.0ms | Allocations: 2602)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-23 14:18:31 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 62.4ms | Allocations: 3073)
+  Rendered layout layouts/application.html.erb (Duration: 134.2ms | Allocations: 11487)
+Completed 200 OK in 3393ms (Views: 238.0ms | ActiveRecord: 26.4ms | Allocations: 19249)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2026-03-23 14:24:53 +0500
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "remember_me" => "0"}, "commit" => "Sign in"}
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:sessions,action:create*/[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2239ms (ActiveRecord: 26.5ms | Allocations: 7420)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "remember_me" => "0"}, "commit" => "Sign in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1076)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 1745)
+Completed 200 OK in 2388ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 3135)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2026-03-23 14:25:05 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1994)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 2707)
+Completed 200 OK in 1887ms (Views: 25.1ms | ActiveRecord: 0.0ms | Allocations: 3902)
+
+
+Started POST "/users" for 127.0.0.1 at 2026-03-23 14:25:38 +0500
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "Noman", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account"}
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN /*application:CodeCritic,controller:registrations,action:create*/[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2 /*application:CodeCritic,controller:registrations,action:create*/[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Create (21.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id" /*application:CodeCritic,controller:registrations,action:create*/[0m  [["email", "[FILTERED]"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2026-03-23 09:25:40.944904"], ["updated_at", "2026-03-23 09:25:40.944904"], ["name", "Noman"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT /*application:CodeCritic,controller:registrations,action:create*/[0m
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 3067ms (ActiveRecord: 28.4ms | Allocations: 20011)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-23 14:25:43 +0500
+Processing by ProjectsController#index as TURBO_STREAM
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:projects,action:index*/[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = $1 /*application:CodeCritic,controller:projects,action:index*/[0m  [["user_id", 5]]
+  ↳ app/controllers/projects_controller.rb:7:in 'block in ProjectsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  Rendered shared/_navbar.html.erb (Duration: 3.5ms | Allocations: 577)
+  Rendered shared/_flash.html.erb (Duration: 1.6ms | Allocations: 147)
+  Rendered projects/index.html.erb within layouts/application (Duration: 22.1ms | Allocations: 1491)
+  Rendered layout layouts/application.html.erb (Duration: 27.6ms | Allocations: 2203)
+Completed 200 OK in 2042ms (Views: 47.2ms | ActiveRecord: 5.9ms | Allocations: 9929)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2026-03-23 14:25:55 +0500
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:projects,action:new*/[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 322)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered projects/new.html.erb within layouts/application (Duration: 16.6ms | Allocations: 1976)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 2643)
+Completed 200 OK in 1339ms (Views: 23.5ms | ActiveRecord: 3.8ms | Allocations: 6385)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2026-03-23 14:25:58 +0500
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:projects,action:new*/[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 322)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered projects/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1271)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 1938)
+Completed 200 OK in 1129ms (Views: 6.6ms | ActiveRecord: 1.4ms | Allocations: 3898)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-23 14:44:29 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:CodeCritic*/[0m
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 1496ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-23 14:44:33 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 62.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 192.4ms | GC: 0.2ms)
+Completed 200 OK in 2301ms (Views: 266.0ms | ActiveRecord: 43.5ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-23 15:10:51 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (6.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:CodeCritic*/[0m
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 3414ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-23 15:10:59 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 61.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 134.5ms | GC: 0.0ms)
+Completed 200 OK in 4007ms (Views: 227.2ms | ActiveRecord: 74.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-03-23 15:11:50 +0500
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 2695ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-03-23 15:11:57 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | GC: 0.0ms)
+Completed 200 OK in 2793ms (Views: 19.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
