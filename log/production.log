@@ -1,0 +1,28 @@
+Started GET "/" for 127.0.0.1 at 2026-03-23 14:41:11 +0500
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2026-03-23 14:41:17 +0500
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2026-03-23 14:42:42 +0500
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 663ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2026-03-23 14:43:15 +0500
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2026-03-23 14:45:22 +0500
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 54ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2026-03-23 14:54:26 +0500
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 45ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Migrating to DeviseCreateUsers (20260318095732)
+Migrating to CreateProjects (20260319073401)
+Migrating to CreateCodeFiles (20260319074230)
+Migrating to CreateReviews (20260319074430)
+Migrating to CreateComments (20260319074549)
+Migrating to AddNameToUser (20260319074702)
+Migrating to CreateActiveStorageTables (20260319141017)
+Started GET "/" for 127.0.0.1 at 2026-03-23 15:10:09 +0500
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 78ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
