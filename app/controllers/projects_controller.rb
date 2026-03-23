@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
   before_action :set_project, only: [:show, :update, :destroy]
-
+  before_action :authenticate_user!
   def index
     @projects = Rails.cache.fetch("projects_user_#{current_user.id}", expires_in: 12.hours) do
       current_user.projects.to_a
