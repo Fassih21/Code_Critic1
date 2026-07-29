@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    authorize @project
   end
 
   def new
@@ -17,6 +18,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.build(project_params)
+    authorize @project
 
     if @project.save
       redirect_to @project, notice: "Project was successfully created"
@@ -29,6 +31,7 @@ class ProjectsController < ApplicationController
   end
 
   def update 
+    authorize @project
     if @project.update(project_params)
       redirect_to @project, notice: "Project updated"
     else 
@@ -37,6 +40,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    authorize @project
     @project.destroy
     redirect_to projects_path, notice: "Project deleted"
   end

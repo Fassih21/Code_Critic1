@@ -1,12 +1,14 @@
 class CodeFilesController < ApplicationController
-  before_action :set_code_file, only: [:show, :edit, :update, :destroy]
+  #before_action :set_code_file, only: [:show, :edit, :update, :destroy]
   before_action :set_project
-
+  before_action :authorize_code_file, only: [:show, :create, :update, :destroy]
+  before_action :authenticate_user!
   def index
     @code_files = @project.code_files
   end
 
   def show
+    authorize @code_file
   end
 
   def new
@@ -15,6 +17,7 @@ class CodeFilesController < ApplicationController
 
   def create
     @code_file = @project.code_files.build(code_file_params)
+    authorize @code_file
     if @code_file.save
       redirect_to code_file_path(@code_file), notice: "Code file created successfully"
     else
@@ -26,6 +29,7 @@ class CodeFilesController < ApplicationController
   end
 
   def update
+    authorize @code_file
     if @code_file.update(code_file_params)
       redirect_to code_file_path(@code_file), notice: "Code file updated successfully"
     else
@@ -34,6 +38,7 @@ class CodeFilesController < ApplicationController
   end
 
   def destroy
+    authorize @code_file
     @code_file.destroy
     redirect_to project_code_files_path(@project), notice: "Code file deleted"
   end

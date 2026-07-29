@@ -2,11 +2,14 @@ class ReviewsController < ApplicationController
   before_action :set_code_file, only: [:show, :destroy]
   before_action :set_review, only: [:show, :destroy]
 
+  before_action :authenticate_user!
 def create
   code_file_id = params[:code_file_id].to_i
   code_file = CodeFile.find(code_file_id)
-  code = code_file.content.to_s.dup
+  @review = Review.new(code_file: code_file)
+  authorize @review
 
+  code = code_file.content.to_s.dup
   Review.where(code_file_id: code_file_id).destroy_all
 
   result = AiReviewServices.new(code).analyze
@@ -21,9 +24,11 @@ def create
 end
 
   def show
+    authorize @review
   end
 
   def destroy
+    authorize @review
     @review.destroy
     redirect_to code_file_path(@code_file), notice: "Review deleted"
   end
