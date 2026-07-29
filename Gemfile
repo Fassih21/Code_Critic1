@@ -5,6 +5,7 @@ gem "rails", "~> 7.0.0"
 gem "devise"
 gem "propshaft"
 gem 'prism', '~> 1.5'
+gem 'pundit', '~> 2.0'
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
