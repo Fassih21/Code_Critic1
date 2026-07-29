@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  resource :user, only: [:update, :show], controller: "users" 
+
   resources :projects do
     resources :code_files, shallow: true do
       resource :review, shallow: true do

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :comments, dependent: :destroy
-
+  has_one_attached :avatar
   before_save :normalize_name
 
   validates :name, presence: true
