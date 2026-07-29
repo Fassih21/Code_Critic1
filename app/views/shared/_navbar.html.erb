@@ -22,9 +22,21 @@
       <div class="flex items-center gap-4">
         
         <% if user_signed_in? %>
-          <span class="text-zinc-400 text-sm hidden sm:block">
-            <%= current_user.email %>
-          </span>
+          <%= link_to user_path, class: "flex items-center gap-2 text-zinc-400 hover:text-white transition-colors" do %>
+            <% if current_user.avatar.attached? %>
+              <%= image_tag current_user.avatar, class: "w-7 h-7 rounded-full object-cover border border-white/10" %>
+            <% else %>
+              <div class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center">
+                <svg class="w-4 h-4 text-zinc-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+              </div>
+            <% end %>
+            <span class="text-sm">
+              <%= current_user.email %>
+            </span>
+          <% end %>
 
           <%= button_to "Logout", destroy_user_session_path,
               method: :delete,
