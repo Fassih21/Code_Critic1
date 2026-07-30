@@ -6,6 +6,7 @@ gem "devise"
 gem "propshaft"
 gem 'prism', '~> 1.5'
 gem 'pundit', '~> 2.0'
+gem 'faker', '~> 2.20'
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -62,6 +63,7 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "factory_bot_rails" 
 end
 
 gem "tailwindcss-rails", "~> 4.4"
