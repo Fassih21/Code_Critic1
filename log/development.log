@@ -7572,3 +7572,838 @@ Completed 200 OK in 2957ms (Views: 42.0ms | ActiveRecord: 4.3ms | Allocations: 1
 Completed 200 OK in 1394ms (Views: 91.7ms | ActiveRecord: 1.7ms | Allocations: 13871)
 
 
+Started GET "/" for 127.0.0.1 at 2026-08-02 19:04:41 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application:CodeCritic*/[0m
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 1900ms (ActiveRecord: 0.0ms | Allocations: 2496)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-08-02 19:04:56 +0500
+Started GET "/" for 127.0.0.1 at 2026-08-02 19:04:56 +0500
+Processing by Devise::SessionsController#new as HTML
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+Completed 401 Unauthorized in 1960ms (ActiveRecord: 0.0ms | Allocations: 8621)
+
+
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 404.0ms | Allocations: 4134)
+  Rendered layout layouts/application.html.erb (Duration: 991.9ms | Allocations: 12768)
+Completed 200 OK in 3124ms (Views: 1245.4ms | ActiveRecord: 42.9ms | Allocations: 22213)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2026-08-02 19:05:03 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1142)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 1888)
+Completed 200 OK in 3914ms (Views: 16.2ms | ActiveRecord: 0.0ms | Allocations: 3275)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2026-08-02 19:05:14 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/users/sign_in" for 127.0.0.1 at 2026-08-02 19:05:36 +0500
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (15.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:sessions,action:create*/[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 1445ms (ActiveRecord: 15.3ms | Allocations: 5504)
+
+
+Started GET "/" for 127.0.0.1 at 2026-08-02 19:05:39 +0500
+Processing by ProjectsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:projects,action:index*/[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProject Load (5.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = $1 /*application:CodeCritic,controller:projects,action:index*/[0m  [["user_id", 10]]
+  ↳ app/controllers/projects_controller.rb:7:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (8.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:projects,action:index*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (5.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:projects,action:index*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 632.8ms | Allocations: 19120)
+  Rendered shared/_flash.html.erb (Duration: 39.9ms | Allocations: 219)
+  [1m[36mCodeFile Count (14.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "code_files" WHERE "code_files"."project_id" = $1 /*application:CodeCritic,controller:projects,action:index*/[0m  [["project_id", 10]]
+  ↳ app/views/projects/index.html.erb:49
+  Rendered projects/index.html.erb within layouts/application (Duration: 817.1ms | Allocations: 23850)
+  Rendered layout layouts/application.html.erb (Duration: 818.8ms | Allocations: 24641)
+Completed 200 OK in 2859ms (Views: 793.9ms | ActiveRecord: 53.9ms | Allocations: 35571)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2c064d12f7b69fd188e784c84d784bb8750617de/Untitled%20design.png" for 127.0.0.1 at 2026-08-02 19:05:43 +0500
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2c064d12f7b69fd188e784c84d784bb8750617de", "filename"=>"Untitled design"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:redirect,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (5.6ms) [0m[34mGenerated URL for file at key: pe47vep50861t1v9eg1bkct9ql6f (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjR1UwTjNabGNEVXdPRFl4ZERGMk9XVm5NV0pyWTNRNWNXdzJaZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxWdWRHbDBiR1ZrSUdSbGMybG5iaTV3Ym1jaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoxVnVkR2wwYkdWa0pUSXdaR1Z6YVdkdUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyNi0wOC0wMlQxNDoxMDo0Ni4wNjdaIiwicHVyIjoiYmxvYl9rZXkifX0=--8350509427d286c96c5eff78fb109ef22a2e6a4a/Untitled%20design.png)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjR1UwTjNabGNEVXdPRFl4ZERGMk9XVm5NV0pyWTNRNWNXdzJaZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxWdWRHbDBiR1ZrSUdSbGMybG5iaTV3Ym1jaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoxVnVkR2wwYkdWa0pUSXdaR1Z6YVdkdUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyNi0wOC0wMlQxNDoxMDo0Ni4wNjdaIiwicHVyIjoiYmxvYl9rZXkifX0=--8350509427d286c96c5eff78fb109ef22a2e6a4a/Untitled%20design.png
+Completed 302 Found in 2008ms (ActiveRecord: 0.4ms | Allocations: 10530)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjR1UwTjNabGNEVXdPRFl4ZERGMk9XVm5NV0pyWTNRNWNXdzJaZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxWdWRHbDBiR1ZrSUdSbGMybG5iaTV3Ym1jaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoxVnVkR2wwYkdWa0pUSXdaR1Z6YVdkdUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyNi0wOC0wMlQxNDoxMDo0Ni4wNjdaIiwicHVyIjoiYmxvYl9rZXkifX0=--8350509427d286c96c5eff78fb109ef22a2e6a4a/Untitled%20design.png" for 127.0.0.1 at 2026-08-02 19:05:47 +0500
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Untitled design"}
+Completed 200 OK in 1624ms (ActiveRecord: 0.0ms | Allocations: 380)
+
+
+Started GET "/user" for 127.0.0.1 at 2026-08-02 19:06:05 +0500
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:users,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 11.1ms | Allocations: 2439)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 23)
+  [1m[36mProject Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1 /*application:CodeCritic,controller:users,action:show*/[0m  [["user_id", 10]]
+  ↳ app/views/users/show.html.erb:58
+  Rendered users/show.html.erb within layouts/application (Duration: 210.9ms | Allocations: 5382)
+  Rendered layout layouts/application.html.erb (Duration: 220.7ms | Allocations: 6171)
+Completed 200 OK in 1510ms (Views: 243.2ms | ActiveRecord: 2.4ms | Allocations: 8430)
+
+
+Started GET "/projects/10" for 127.0.0.1 at 2026-08-02 19:06:10 +0500
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:projects,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:51:in `set_project'
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3 /*application:CodeCritic,controller:projects,action:show*/[0m  [["user_id", 10], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:51:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:projects,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:projects,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 9.4ms | Allocations: 2350)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 20)
+  [1m[36mCodeFile Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "code_files" WHERE "code_files"."project_id" = $1 /*application:CodeCritic,controller:projects,action:show*/[0m  [["project_id", 10]]
+  ↳ app/views/projects/show.html.erb:39
+  [1m[36mCACHE CodeFile Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "code_files" WHERE "code_files"."project_id" = $1[0m  [["project_id", 10]]
+  ↳ app/views/projects/show.html.erb:64
+  [1m[36mCodeFile Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "code_files" WHERE "code_files"."project_id" = $1 LIMIT $2 /*application:CodeCritic,controller:projects,action:show*/[0m  [["project_id", 10], ["LIMIT", 1]]
+  ↳ app/views/projects/show.html.erb:67
+  Rendered projects/show.html.erb within layouts/application (Duration: 126.8ms | Allocations: 5676)
+  Rendered layout layouts/application.html.erb (Duration: 129.6ms | Allocations: 6420)
+Completed 200 OK in 1520ms (Views: 129.2ms | ActiveRecord: 2.5ms | Allocations: 9256)
+
+
+Started GET "/user" for 127.0.0.1 at 2026-08-02 19:06:16 +0500
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:users,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 6.9ms | Allocations: 2342)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 20)
+  [1m[36mProject Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1 /*application:CodeCritic,controller:users,action:show*/[0m  [["user_id", 10]]
+  ↳ app/views/users/show.html.erb:58
+  Rendered users/show.html.erb within layouts/application (Duration: 12.2ms | Allocations: 4214)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 4958)
+Completed 200 OK in 952ms (Views: 14.9ms | ActiveRecord: 1.9ms | Allocations: 6708)
+
+
+Started GET "/projects/10/code_files/new" for 127.0.0.1 at 2026-08-02 19:06:24 +0500
+Processing by CodeFilesController#new as HTML
+  Parameters: {"project_id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["user_id", 10], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering code_files/new.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 9.9ms | Allocations: 2438)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered code_files/new.html.erb within layouts/application (Duration: 272.6ms | Allocations: 5151)
+  Rendered layout layouts/application.html.erb (Duration: 275.3ms | Allocations: 5939)
+Completed 200 OK in 1624ms (Views: 287.2ms | ActiveRecord: 5.5ms | Allocations: 11712)
+
+
+Started POST "/projects/10/code_files" for 127.0.0.1 at 2026-08-02 19:07:07 +0500
+Processing by CodeFilesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "code_file"=>{"language"=>"ruby", "content"=>"# Model representing a mosque with location and prayer times\r\nclass Masjid < ApplicationRecord\r\n  acts_as_paranoid\r\n\r\n  belongs_to :user\r\n  has_many :jamat_timings, dependent: :destroy\r\n  validates :name, :address, :city, :area, presence: true\r\n\r\n  scope :latest_active_timing, -> { jamat_timings.max_by(&:date) }\r\nend\r\n"}, "commit"=>"Add File", "project_id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:code_files,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3 /*application:CodeCritic,controller:code_files,action:create*/[0m  [["user_id", 10], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+Completed 500 Internal Server Error in 2012ms (ActiveRecord: 0.9ms | Allocations: 2454)
+
+
+  
+NoMethodError (undefined method `authorize_code_file' for #<CodeFilesController:0x00000000010298>):
+  
+activesupport (7.0.10) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.10) lib/active_support/callbacks.rb:180:in `block (2 levels) in halting_and_conditional'
+actionpack (7.0.10) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.10) lib/active_support/callbacks.rb:181:in `block in halting_and_conditional'
+activesupport (7.0.10) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.10) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.10) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.10) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+turbo-rails (2.0.12) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.12) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.0.10) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+actiontext (7.0.10) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.10) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.10) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.10) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.10) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.10) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.10) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.10) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.10) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.10) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.10) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.10) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.10) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.10) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.10) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.10) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.10) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.10) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.10) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.10) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.10) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.10) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.10) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.10) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.22) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.22) lib/rack/etag.rb:27:in `call'
+rack (2.2.22) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.22) lib/rack/head.rb:12:in `call'
+actionpack (7.0.10) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.10) lib/action_dispatch/http/content_security_policy.rb:39:in `call'
+rack (2.2.22) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.22) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.10) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.10) lib/active_record/migration.rb:639:in `call'
+actionpack (7.0.10) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.10) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.10) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.10) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.10) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.10) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.10) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.10) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.10) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.10) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.10) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.10) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.10) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.10) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.10) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.22) lib/rack/method_override.rb:24:in `call'
+rack (2.2.22) lib/rack/runtime.rb:22:in `call'
+actionpack (7.0.10) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.10) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.10) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.10) lib/action_dispatch/middleware/executor.rb:14:in `call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in `call'
+actionpack (7.0.10) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.22) lib/rack/sendfile.rb:127:in `call'
+actionpack (7.0.10) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.10) lib/rails/engine.rb:531:in `call'
+puma (7.2.0) lib/puma/configuration.rb:296:in `call'
+puma (7.2.0) lib/puma/request.rb:103:in `block in handle_request'
+puma (7.2.0) lib/puma/thread_pool.rb:355:in `with_force_shutdown'
+puma (7.2.0) lib/puma/request.rb:102:in `handle_request'
+puma (7.2.0) lib/puma/server.rb:503:in `process_client'
+puma (7.2.0) lib/puma/server.rb:262:in `block in run'
+puma (7.2.0) lib/puma/thread_pool.rb:182:in `block in spawn_thread'
+Started GET "/projects/10/code_files/new" for 127.0.0.1 at 2026-08-02 19:12:00 +0500
+Processing by CodeFilesController#new as HTML
+  Parameters: {"project_id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["user_id", 10], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering code_files/new.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 71.1ms | Allocations: 13540)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered code_files/new.html.erb within layouts/application (Duration: 80.0ms | Allocations: 15080)
+  Rendered layout layouts/application.html.erb (Duration: 95.5ms | Allocations: 17473)
+Completed 200 OK in 2007ms (Views: 87.5ms | ActiveRecord: 34.1ms | Allocations: 31341)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2c064d12f7b69fd188e784c84d784bb8750617de/Untitled%20design.png" for 127.0.0.1 at 2026-08-02 19:12:05 +0500
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2c064d12f7b69fd188e784c84d784bb8750617de", "filename"=>"Untitled design"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:redirect,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (1.1ms) [0m[34mGenerated URL for file at key: pe47vep50861t1v9eg1bkct9ql6f (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjR1UwTjNabGNEVXdPRFl4ZERGMk9XVm5NV0pyWTNRNWNXdzJaZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxWdWRHbDBiR1ZrSUdSbGMybG5iaTV3Ym1jaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoxVnVkR2wwYkdWa0pUSXdaR1Z6YVdkdUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyNi0wOC0wMlQxNDoxNzowNy44NjlaIiwicHVyIjoiYmxvYl9rZXkifX0=--7bc742e50a6088008a016a7edb2f61f01bb3323e/Untitled%20design.png)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjR1UwTjNabGNEVXdPRFl4ZERGMk9XVm5NV0pyWTNRNWNXdzJaZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxWdWRHbDBiR1ZrSUdSbGMybG5iaTV3Ym1jaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoxVnVkR2wwYkdWa0pUSXdaR1Z6YVdkdUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyNi0wOC0wMlQxNDoxNzowNy44NjlaIiwicHVyIjoiYmxvYl9rZXkifX0=--7bc742e50a6088008a016a7edb2f61f01bb3323e/Untitled%20design.png
+Completed 302 Found in 1699ms (ActiveRecord: 0.4ms | Allocations: 2388)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjR1UwTjNabGNEVXdPRFl4ZERGMk9XVm5NV0pyWTNRNWNXdzJaZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxWdWRHbDBiR1ZrSUdSbGMybG5iaTV3Ym1jaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoxVnVkR2wwYkdWa0pUSXdaR1Z6YVdkdUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyNi0wOC0wMlQxNDoxNzowNy44NjlaIiwicHVyIjoiYmxvYl9rZXkifX0=--7bc742e50a6088008a016a7edb2f61f01bb3323e/Untitled%20design.png" for 127.0.0.1 at 2026-08-02 19:12:09 +0500
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Untitled design"}
+Completed 200 OK in 1626ms (ActiveRecord: 0.0ms | Allocations: 349)
+
+
+Started GET "/projects/10" for 127.0.0.1 at 2026-08-02 19:12:19 +0500
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:projects,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:51:in `set_project'
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3 /*application:CodeCritic,controller:projects,action:show*/[0m  [["user_id", 10], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:51:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:projects,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (2.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:projects,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 15.1ms | Allocations: 2432)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 23)
+  [1m[36mCodeFile Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "code_files" WHERE "code_files"."project_id" = $1 /*application:CodeCritic,controller:projects,action:show*/[0m  [["project_id", 10]]
+  ↳ app/views/projects/show.html.erb:39
+  [1m[36mCACHE CodeFile Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "code_files" WHERE "code_files"."project_id" = $1[0m  [["project_id", 10]]
+  ↳ app/views/projects/show.html.erb:64
+  [1m[36mCodeFile Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "code_files" WHERE "code_files"."project_id" = $1 LIMIT $2 /*application:CodeCritic,controller:projects,action:show*/[0m  [["project_id", 10], ["LIMIT", 1]]
+  ↳ app/views/projects/show.html.erb:67
+  Rendered projects/show.html.erb within layouts/application (Duration: 28.9ms | Allocations: 4903)
+  Rendered layout layouts/application.html.erb (Duration: 31.2ms | Allocations: 5692)
+Completed 200 OK in 1285ms (Views: 28.8ms | ActiveRecord: 5.5ms | Allocations: 8489)
+
+
+Started POST "/projects/10/code_files" for 127.0.0.1 at 2026-08-02 19:12:27 +0500
+Processing by CodeFilesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "code_file"=>{"language"=>"", "content"=>"# Model representing a mosque with location and prayer times\r\nclass Masjid < ApplicationRecord\r\n  acts_as_paranoid\r\n\r\n  belongs_to :user\r\n  has_many :jamat_timings, dependent: :destroy\r\n  validates :name, :address, :city, :area, presence: true\r\n\r\n  scope :latest_active_timing, -> { jamat_timings.max_by(&:date) }\r\nend\r\n"}, "commit"=>"Add File", "project_id"=>"10"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:code_files,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3 /*application:CodeCritic,controller:code_files,action:create*/[0m  [["user_id", 10], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering code_files/new.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:code_files,action:create*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:create*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 31.8ms | Allocations: 2348)
+  Rendered shared/_flash.html.erb (Duration: 0.3ms | Allocations: 20)
+  Rendered code_files/new.html.erb within layouts/application (Duration: 50.9ms | Allocations: 5441)
+  Rendered layout layouts/application.html.erb (Duration: 53.8ms | Allocations: 6185)
+Completed 422 Unprocessable Entity in 1715ms (Views: 54.6ms | ActiveRecord: 2.5ms | Allocations: 10158)
+
+
+Started POST "/projects/10/code_files" for 127.0.0.1 at 2026-08-02 19:12:42 +0500
+Processing by CodeFilesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "code_file"=>{"language"=>"ruby", "content"=>"# Model representing a mosque with location and prayer times\r\nclass Masjid < ApplicationRecord\r\n  acts_as_paranoid\r\n\r\n  belongs_to :user\r\n  has_many :jamat_timings, dependent: :destroy\r\n  validates :name, :address, :city, :area, presence: true\r\n\r\n  scope :latest_active_timing, -> { jamat_timings.max_by(&:date) }\r\nend\r\n"}, "commit"=>"Add File", "project_id"=>"10"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:code_files,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3 /*application:CodeCritic,controller:code_files,action:create*/[0m  [["user_id", 10], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN /*application:CodeCritic,controller:code_files,action:create*/[0m
+  ↳ app/controllers/code_files_controller.rb:21:in `create'
+  [1m[36mCodeFile Create (55.2ms)[0m  [1m[32mINSERT INTO "code_files" ("content", "language", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id" /*application:CodeCritic,controller:code_files,action:create*/[0m  [["content", "# Model representing a mosque with location and prayer times\r\nclass Masjid < ApplicationRecord\r\n  acts_as_paranoid\r\n\r\n  belongs_to :user\r\n  has_many :jamat_timings, dependent: :destroy\r\n  validates :name, :address, :city, :area, presence: true\r\n\r\n  scope :latest_active_timing, -> { jamat_timings.max_by(&:date) }\r\nend\r\n"], ["language", "ruby"], ["project_id", 10], ["created_at", "2026-08-02 14:12:44.240103"], ["updated_at", "2026-08-02 14:12:44.240103"]]
+  ↳ app/controllers/code_files_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT /*application:CodeCritic,controller:code_files,action:create*/[0m
+  ↳ app/controllers/code_files_controller.rb:21:in `create'
+Redirected to http://127.0.0.1:3000/code_files/16
+Completed 302 Found in 1975ms (ActiveRecord: 62.6ms | Allocations: 5236)
+
+
+Started GET "/code_files/16" for 127.0.0.1 at 2026-08-02 19:12:46 +0500
+Processing by CodeFilesController#show as TURBO_STREAM
+  Parameters: {"id"=>"16"}
+Completed 500 Internal Server Error in 2007ms (ActiveRecord: 0.0ms | Allocations: 591)
+
+
+  
+NoMethodError (undefined method `project' for nil:NilClass):
+  
+app/controllers/code_files_controller.rb:52:in `set_project'
+Started GET "/projects/10/code_files/new" for 127.0.0.1 at 2026-08-02 19:31:26 +0500
+Processing by CodeFilesController#new as HTML
+  Parameters: {"project_id"=>"10"}
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  [1m[36mProject Load (3.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["user_id", 10], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering code_files/new.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (6.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (3.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 23.4ms | Allocations: 2347)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered code_files/new.html.erb within layouts/application (Duration: 27.1ms | Allocations: 3799)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | Allocations: 4544)
+Completed 200 OK in 1897ms (Views: 21.5ms | ActiveRecord: 96.4ms | Allocations: 10847)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2c064d12f7b69fd188e784c84d784bb8750617de/Untitled%20design.png" for 127.0.0.1 at 2026-08-02 19:31:31 +0500
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2c064d12f7b69fd188e784c84d784bb8750617de", "filename"=>"Untitled design"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:redirect,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (1.2ms) [0m[34mGenerated URL for file at key: pe47vep50861t1v9eg1bkct9ql6f (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjR1UwTjNabGNEVXdPRFl4ZERGMk9XVm5NV0pyWTNRNWNXdzJaZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxWdWRHbDBiR1ZrSUdSbGMybG5iaTV3Ym1jaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoxVnVkR2wwYkdWa0pUSXdaR1Z6YVdkdUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyNi0wOC0wMlQxNDozNjozMy4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--d27917ee8e3f1305b230725df1da83179ffee9af/Untitled%20design.png)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjR1UwTjNabGNEVXdPRFl4ZERGMk9XVm5NV0pyWTNRNWNXdzJaZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxWdWRHbDBiR1ZrSUdSbGMybG5iaTV3Ym1jaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoxVnVkR2wwYkdWa0pUSXdaR1Z6YVdkdUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyNi0wOC0wMlQxNDozNjozMy4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--d27917ee8e3f1305b230725df1da83179ffee9af/Untitled%20design.png
+Completed 302 Found in 1887ms (ActiveRecord: 0.4ms | Allocations: 1525)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjR1UwTjNabGNEVXdPRFl4ZERGMk9XVm5NV0pyWTNRNWNXdzJaZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxWdWRHbDBiR1ZrSUdSbGMybG5iaTV3Ym1jaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoxVnVkR2wwYkdWa0pUSXdaR1Z6YVdkdUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyNi0wOC0wMlQxNDozNjozMy4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--d27917ee8e3f1305b230725df1da83179ffee9af/Untitled%20design.png" for 127.0.0.1 at 2026-08-02 19:31:34 +0500
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Untitled design"}
+Completed 200 OK in 1458ms (ActiveRecord: 0.0ms | Allocations: 261)
+
+
+Started POST "/projects/10/code_files" for 127.0.0.1 at 2026-08-02 19:31:41 +0500
+Processing by CodeFilesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "code_file"=>{"language"=>"ruby", "content"=>"class CodeFilesController < ApplicationController\r\n  #before_action :set_code_file, only: [:show, :edit, :update, :destroy]\r\n  before_action :set_project\r\n  #before_action :authorize_code_file, only: [:show, :create, :update, :destroy]\r\n  before_action :authenticate_user!\r\n  def index\r\n    @code_files = @project.code_files\r\n  end\r\n\r\n  def show\r\n    authorize @code_file\r\n  end\r\n\r\n  def new\r\n    @code_file = @project.code_files.build\r\n  end\r\n\r\n  def create\r\n    @code_file = @project.code_files.build(code_file_params)\r\n    authorize @code_file\r\n    if @code_file.save\r\n      redirect_to code_file_path(@code_file), notice: \"Code file created successfully\"\r\n    else\r\n      render :new, status: :unprocessable_entity\r\n    end\r\n  end\r\n\r\n  def edit\r\n  end\r\n\r\n  def update\r\n    authorize @code_file\r\n    if @code_file.update(code_file_params)\r\n      redirect_to code_file_path(@code_file), notice: \"Code file updated successfully\"\r\n    else\r\n      render :edit, status: :unprocessable_entity\r\n    end\r\n  end\r\n\r\n  def destroy\r\n    authorize @code_file\r\n    @code_file.destroy\r\n    redirect_to project_code_files_path(@project), notice: \"Code file deleted\"\r\n  end\r\n\r\n  private\r\n\r\n  def set_project\r\n    if params[:project_id]\r\n      @project = current_user.projects.find(params[:project_id])\r\n    else\r\n      @project = @code_file.project\r\n    end\r\n  end\r\n\r\n  def set_code_file\r\n    @code_file = CodeFile.find(params[:id])\r\n  end\r\n\r\n  def code_file_params\r\n    params.require(:code_file).permit(:content, :language, :file)\r\n  end\r\nend"}, "commit"=>"Add File", "project_id"=>"10"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:code_files,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3 /*application:CodeCritic,controller:code_files,action:create*/[0m  [["user_id", 10], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mBEGIN /*application:CodeCritic,controller:code_files,action:create*/[0m
+  ↳ app/controllers/code_files_controller.rb:21:in `create'
+  [1m[36mCodeFile Create (33.5ms)[0m  [1m[32mINSERT INTO "code_files" ("content", "language", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id" /*application:CodeCritic,controller:code_files,action:create*/[0m  [["content", "class CodeFilesController < ApplicationController\r\n  #before_action :set_code_file, only: [:show, :edit, :update, :destroy]\r\n  before_action :set_project\r\n  #before_action :authorize_code_file, only: [:show, :create, :update, :destroy]\r\n  before_action :authenticate_user!\r\n  def index\r\n    @code_files = @project.code_files\r\n  end\r\n\r\n  def show\r\n    authorize @code_file\r\n  end\r\n\r\n  def new\r\n    @code_file = @project.code_files.build\r\n  end\r\n\r\n  def create\r\n    @code_file = @project.code_files.build(code_file_params)\r\n    authorize @code_file\r\n    if @code_file.save\r\n      redirect_to code_file_path(@code_file), notice: \"Code file created successfully\"\r\n    else\r\n      render :new, status: :unprocessable_entity\r\n    end\r\n  end\r\n\r\n  def edit\r\n  end\r\n\r\n  def update\r\n    authorize @code_file\r\n    if @code_file.update(code_file_params)\r\n      redirect_to code_file_path(@code_file), notice: \"Code file updated successfully\"\r\n    else\r\n      render :edit, status: :unprocessable_entity\r\n    end\r\n  end\r\n\r\n  def destroy\r\n    authorize @code_file\r\n    @code_file.destroy\r\n    redirect_to project_code_files_path(@project), notice: \"Code file deleted\"\r\n  end\r\n\r\n  private\r\n\r\n  def set_project\r\n    if params[:project_id]\r\n      @project = current_user.projects.find(params[:project_id])\r\n    else\r\n      @project = @code_file.project\r\n    end\r\n  end\r\n\r\n  def set_code_file\r\n    @code_file = CodeFile.find(params[:id])\r\n  end\r\n\r\n  def code_file_params\r\n    params.require(:code_file).permit(:content, :language, :file)\r\n  end\r\nend"], ["language", "ruby"], ["project_id", 10], ["created_at", "2026-08-02 14:31:43.000373"], ["updated_at", "2026-08-02 14:31:43.000373"]]
+  ↳ app/controllers/code_files_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application:CodeCritic,controller:code_files,action:create*/[0m
+  ↳ app/controllers/code_files_controller.rb:21:in `create'
+Redirected to http://127.0.0.1:3000/code_files/17
+Completed 302 Found in 1801ms (ActiveRecord: 40.4ms | Allocations: 4299)
+
+
+Started GET "/code_files/17" for 127.0.0.1 at 2026-08-02 19:31:44 +0500
+Processing by CodeFilesController#show as TURBO_STREAM
+  Parameters: {"id"=>"17"}
+Completed 500 Internal Server Error in 1580ms (ActiveRecord: 0.0ms | Allocations: 579)
+
+
+  
+NoMethodError (undefined method `project' for nil:NilClass):
+  
+app/controllers/code_files_controller.rb:52:in `set_project'
+Started GET "/projects/10/code_files/new" for 127.0.0.1 at 2026-08-02 19:32:46 +0500
+Processing by CodeFilesController#new as HTML
+  Parameters: {"project_id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["user_id", 10], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering code_files/new.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:new*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 244.0ms | Allocations: 13538)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 26)
+  Rendered code_files/new.html.erb within layouts/application (Duration: 351.8ms | Allocations: 15081)
+  Rendered layout layouts/application.html.erb (Duration: 369.3ms | Allocations: 17474)
+Completed 200 OK in 1638ms (Views: 365.3ms | ActiveRecord: 78.7ms | Allocations: 31466)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjR1UwTjNabGNEVXdPRFl4ZERGMk9XVm5NV0pyWTNRNWNXdzJaZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxWdWRHbDBiR1ZrSUdSbGMybG5iaTV3Ym1jaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoxVnVkR2wwYkdWa0pUSXdaR1Z6YVdkdUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyNi0wOC0wMlQxNDozNjozMy4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--d27917ee8e3f1305b230725df1da83179ffee9af/Untitled%20design.png" for 127.0.0.1 at 2026-08-02 19:32:50 +0500
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Untitled design"}
+Completed 304 Not Modified in 1572ms (ActiveRecord: 0.0ms | Allocations: 446)
+
+
+Started POST "/projects/10/code_files" for 127.0.0.1 at 2026-08-02 19:32:57 +0500
+Processing by CodeFilesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "code_file"=>{"language"=>"ruby", "content"=>"class CodeFilesController < ApplicationController\r\n  #before_action :set_code_file, only: [:show, :edit, :update, :destroy]\r\n  before_action :set_project\r\n  #before_action :authorize_code_file, only: [:show, :create, :update, :destroy]\r\n  before_action :authenticate_user!\r\n  def index\r\n    @code_files = @project.code_files\r\n  end\r\n\r\n  def show\r\n    authorize @code_file\r\n  end\r\n\r\n  def new\r\n    @code_file = @project.code_files.build\r\n  end\r\n\r\n  def create\r\n    @code_file = @project.code_files.build(code_file_params)\r\n    authorize @code_file\r\n    if @code_file.save\r\n      redirect_to code_file_path(@code_file), notice: \"Code file created successfully\"\r\n    else\r\n      render :new, status: :unprocessable_entity\r\n    end\r\n  end\r\n\r\n  def edit\r\n  end\r\n\r\n  def update\r\n    authorize @code_file\r\n    if @code_file.update(code_file_params)\r\n      redirect_to code_file_path(@code_file), notice: \"Code file updated successfully\"\r\n    else\r\n      render :edit, status: :unprocessable_entity\r\n    end\r\n  end\r\n\r\n  def destroy\r\n    authorize @code_file\r\n    @code_file.destroy\r\n    redirect_to project_code_files_path(@project), notice: \"Code file deleted\"\r\n  end\r\n\r\n  private\r\n\r\n  def set_project\r\n    if params[:project_id]\r\n      @project = current_user.projects.find(params[:project_id])\r\n    else\r\n      @project = @code_file.project\r\n    end\r\n  end\r\n\r\n  def set_code_file\r\n    @code_file = CodeFile.find(params[:id])\r\n  end\r\n\r\n  def code_file_params\r\n    params.require(:code_file).permit(:content, :language, :file)\r\n  end\r\nend"}, "commit"=>"Add File", "project_id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:code_files,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = $1 AND "projects"."id" = $2 LIMIT $3 /*application:CodeCritic,controller:code_files,action:create*/[0m  [["user_id", 10], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:50:in `set_project'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application:CodeCritic,controller:code_files,action:create*/[0m
+  ↳ app/controllers/code_files_controller.rb:21:in `create'
+  [1m[36mCodeFile Create (0.7ms)[0m  [1m[32mINSERT INTO "code_files" ("content", "language", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id" /*application:CodeCritic,controller:code_files,action:create*/[0m  [["content", "class CodeFilesController < ApplicationController\r\n  #before_action :set_code_file, only: [:show, :edit, :update, :destroy]\r\n  before_action :set_project\r\n  #before_action :authorize_code_file, only: [:show, :create, :update, :destroy]\r\n  before_action :authenticate_user!\r\n  def index\r\n    @code_files = @project.code_files\r\n  end\r\n\r\n  def show\r\n    authorize @code_file\r\n  end\r\n\r\n  def new\r\n    @code_file = @project.code_files.build\r\n  end\r\n\r\n  def create\r\n    @code_file = @project.code_files.build(code_file_params)\r\n    authorize @code_file\r\n    if @code_file.save\r\n      redirect_to code_file_path(@code_file), notice: \"Code file created successfully\"\r\n    else\r\n      render :new, status: :unprocessable_entity\r\n    end\r\n  end\r\n\r\n  def edit\r\n  end\r\n\r\n  def update\r\n    authorize @code_file\r\n    if @code_file.update(code_file_params)\r\n      redirect_to code_file_path(@code_file), notice: \"Code file updated successfully\"\r\n    else\r\n      render :edit, status: :unprocessable_entity\r\n    end\r\n  end\r\n\r\n  def destroy\r\n    authorize @code_file\r\n    @code_file.destroy\r\n    redirect_to project_code_files_path(@project), notice: \"Code file deleted\"\r\n  end\r\n\r\n  private\r\n\r\n  def set_project\r\n    if params[:project_id]\r\n      @project = current_user.projects.find(params[:project_id])\r\n    else\r\n      @project = @code_file.project\r\n    end\r\n  end\r\n\r\n  def set_code_file\r\n    @code_file = CodeFile.find(params[:id])\r\n  end\r\n\r\n  def code_file_params\r\n    params.require(:code_file).permit(:content, :language, :file)\r\n  end\r\nend"], ["language", "ruby"], ["project_id", 10], ["created_at", "2026-08-02 14:32:58.922407"], ["updated_at", "2026-08-02 14:32:58.922407"]]
+  ↳ app/controllers/code_files_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application:CodeCritic,controller:code_files,action:create*/[0m
+  ↳ app/controllers/code_files_controller.rb:21:in `create'
+Redirected to http://127.0.0.1:3000/code_files/18
+Completed 302 Found in 1317ms (ActiveRecord: 2.1ms | Allocations: 5334)
+
+
+Started GET "/code_files/18" for 127.0.0.1 at 2026-08-02 19:33:00 +0500
+Processing by CodeFilesController#show as TURBO_STREAM
+  Parameters: {"id"=>"18"}
+  [1m[36mCodeFile Load (1.5ms)[0m  [1m[34mSELECT "code_files".* FROM "code_files" WHERE "code_files"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:57:in `set_code_file'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:52:in `set_project'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering code_files/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 7.2ms | Allocations: 2352)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 23)
+  [1m[36mReview Load (5.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."code_file_id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["code_file_id", 18], ["LIMIT", 1]]
+  ↳ app/views/code_files/show.html.erb:38
+  Rendered code_files/show.html.erb within layouts/application (Duration: 271.0ms | Allocations: 7972)
+  Rendered layout layouts/application.html.erb (Duration: 272.5ms | Allocations: 8717)
+Completed 200 OK in 1328ms (Views: 266.3ms | ActiveRecord: 9.6ms | Allocations: 13030)
+
+
+Started GET "/user" for 127.0.0.1 at 2026-08-02 19:33:02 +0500
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:users,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 12.2ms | Allocations: 2440)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 23)
+  [1m[36mProject Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1 /*application:CodeCritic,controller:users,action:show*/[0m  [["user_id", 10]]
+  ↳ app/views/users/show.html.erb:58
+  Rendered users/show.html.erb within layouts/application (Duration: 22.6ms | Allocations: 4414)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 5203)
+Completed 200 OK in 1273ms (Views: 25.4ms | ActiveRecord: 2.4ms | Allocations: 7305)
+
+
+Started POST "/code_files/18/review" for 127.0.0.1 at 2026-08-02 19:33:08 +0500
+Processing by ReviewsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "code_file_id"=>"18"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCodeFile Load (0.4ms)[0m  [1m[34mSELECT "code_files".* FROM "code_files" WHERE "code_files"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `create'
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."code_file_id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["code_file_id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:9:in `create'
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/policies/review_policy.rb:6:in `create?'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/policies/review_policy.rb:6:in `create?'
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."code_file_id" = $1 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["code_file_id", 18]]
+  ↳ app/controllers/reviews_controller.rb:12:in `create'
+Completed 500 Internal Server Error in 1135ms (ActiveRecord: 4.9ms | Allocations: 9682)
+
+
+  
+NameError (uninitialized constant ReviewsController::AiReviewService):
+  
+app/controllers/reviews_controller.rb:14:in `create'
+Started GET "/code_files/18" for 127.0.0.1 at 2026-08-02 19:34:59 +0500
+Processing by CodeFilesController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mCodeFile Load (0.4ms)[0m  [1m[34mSELECT "code_files".* FROM "code_files" WHERE "code_files"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:57:in `set_code_file'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:52:in `set_project'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering code_files/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 44.0ms | Allocations: 13549)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 23)
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."code_file_id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["code_file_id", 18], ["LIMIT", 1]]
+  ↳ app/views/code_files/show.html.erb:38
+  Rendered code_files/show.html.erb within layouts/application (Duration: 56.8ms | Allocations: 17609)
+  Rendered layout layouts/application.html.erb (Duration: 63.3ms | Allocations: 20002)
+Completed 200 OK in 974ms (Views: 55.1ms | ActiveRecord: 21.3ms | Allocations: 34355)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjR1UwTjNabGNEVXdPRFl4ZERGMk9XVm5NV0pyWTNRNWNXdzJaZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxWdWRHbDBiR1ZrSUdSbGMybG5iaTV3Ym1jaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoxVnVkR2wwYkdWa0pUSXdaR1Z6YVdkdUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyNi0wOC0wMlQxNDozNjozMy4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--d27917ee8e3f1305b230725df1da83179ffee9af/Untitled%20design.png" for 127.0.0.1 at 2026-08-02 19:35:02 +0500
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Untitled design"}
+Completed 304 Not Modified in 1218ms (ActiveRecord: 0.0ms | Allocations: 446)
+
+
+Started POST "/code_files/18/review" for 127.0.0.1 at 2026-08-02 19:35:06 +0500
+Processing by ReviewsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "code_file_id"=>"18"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCodeFile Load (0.4ms)[0m  [1m[34mSELECT "code_files".* FROM "code_files" WHERE "code_files"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `create'
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."code_file_id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["code_file_id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:9:in `create'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/policies/review_policy.rb:6:in `create?'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/policies/review_policy.rb:6:in `create?'
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."code_file_id" = $1 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["code_file_id", 18]]
+  ↳ app/controllers/reviews_controller.rb:12:in `create'
+Completed 500 Internal Server Error in 1792ms (ActiveRecord: 4.0ms | Allocations: 22720)
+
+
+  
+Zeitwerk::NameError (expected file D:/code_critic/code_critic/app/services/ai_review_services.rb to define constant AiReviewServices, but didn't):
+  
+app/controllers/reviews_controller.rb:14:in `create'
+Started GET "/code_files/18" for 127.0.0.1 at 2026-08-02 19:36:43 +0500
+Processing by CodeFilesController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mCodeFile Load (0.4ms)[0m  [1m[34mSELECT "code_files".* FROM "code_files" WHERE "code_files"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:57:in `set_code_file'
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:52:in `set_project'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering code_files/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 53.1ms | Allocations: 13961)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 35)
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."code_file_id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["code_file_id", 18], ["LIMIT", 1]]
+  ↳ app/views/code_files/show.html.erb:38
+  Rendered code_files/show.html.erb within layouts/application (Duration: 65.6ms | Allocations: 18137)
+  Rendered layout layouts/application.html.erb (Duration: 72.8ms | Allocations: 20625)
+Completed 200 OK in 945ms (Views: 65.2ms | ActiveRecord: 20.7ms | Allocations: 36228)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2c064d12f7b69fd188e784c84d784bb8750617de/Untitled%20design.png" for 127.0.0.1 at 2026-08-02 19:36:46 +0500
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2c064d12f7b69fd188e784c84d784bb8750617de", "filename"=>"Untitled design"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:redirect,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (1.7ms) [0m[34mGenerated URL for file at key: pe47vep50861t1v9eg1bkct9ql6f (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjR1UwTjNabGNEVXdPRFl4ZERGMk9XVm5NV0pyWTNRNWNXdzJaZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxWdWRHbDBiR1ZrSUdSbGMybG5iaTV3Ym1jaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoxVnVkR2wwYkdWa0pUSXdaR1Z6YVdkdUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyNi0wOC0wMlQxNDo0MTo0Ny4zMjRaIiwicHVyIjoiYmxvYl9rZXkifX0=--9accb9d72e61ad1802045da0f173717e89a22804/Untitled%20design.png)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjR1UwTjNabGNEVXdPRFl4ZERGMk9XVm5NV0pyWTNRNWNXdzJaZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxWdWRHbDBiR1ZrSUdSbGMybG5iaTV3Ym1jaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoxVnVkR2wwYkdWa0pUSXdaR1Z6YVdkdUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyNi0wOC0wMlQxNDo0MTo0Ny4zMjRaIiwicHVyIjoiYmxvYl9rZXkifX0=--9accb9d72e61ad1802045da0f173717e89a22804/Untitled%20design.png
+Completed 302 Found in 1030ms (ActiveRecord: 0.3ms | Allocations: 2534)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjR1UwTjNabGNEVXdPRFl4ZERGMk9XVm5NV0pyWTNRNWNXdzJaZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxWdWRHbDBiR1ZrSUdSbGMybG5iaTV3Ym1jaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoxVnVkR2wwYkdWa0pUSXdaR1Z6YVdkdUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyNi0wOC0wMlQxNDo0MTo0Ny4zMjRaIiwicHVyIjoiYmxvYl9rZXkifX0=--9accb9d72e61ad1802045da0f173717e89a22804/Untitled%20design.png" for 127.0.0.1 at 2026-08-02 19:36:48 +0500
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Untitled design"}
+Completed 200 OK in 1176ms (ActiveRecord: 0.0ms | Allocations: 482)
+
+
+Started POST "/code_files/18/review" for 127.0.0.1 at 2026-08-02 19:36:50 +0500
+Processing by ReviewsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "code_file_id"=>"18"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCodeFile Load (0.4ms)[0m  [1m[34mSELECT "code_files".* FROM "code_files" WHERE "code_files"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `create'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."code_file_id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["code_file_id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:9:in `create'
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/policies/review_policy.rb:6:in `create?'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/policies/review_policy.rb:6:in `create?'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."code_file_id" = $1 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["code_file_id", 18]]
+  ↳ app/controllers/reviews_controller.rb:12:in `create'
+Completed 500 Internal Server Error in 825ms (ActiveRecord: 4.4ms | Allocations: 8902)
+
+
+  
+Zeitwerk::NameError (expected file D:/code_critic/code_critic/app/services/ai_review_services.rb to define constant AiReviewServices, but didn't):
+  
+app/controllers/reviews_controller.rb:14:in `create'
+Started GET "/code_files/18" for 127.0.0.1 at 2026-08-02 19:39:16 +0500
+Processing by CodeFilesController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mCodeFile Load (0.4ms)[0m  [1m[34mSELECT "code_files".* FROM "code_files" WHERE "code_files"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:57:in `set_code_file'
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:52:in `set_project'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering code_files/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 55.0ms | Allocations: 13552)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 23)
+  [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."code_file_id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["code_file_id", 18], ["LIMIT", 1]]
+  ↳ app/views/code_files/show.html.erb:38
+  Rendered code_files/show.html.erb within layouts/application (Duration: 69.0ms | Allocations: 17612)
+  Rendered layout layouts/application.html.erb (Duration: 75.5ms | Allocations: 20005)
+Completed 200 OK in 959ms (Views: 65.7ms | ActiveRecord: 23.3ms | Allocations: 34402)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjR1UwTjNabGNEVXdPRFl4ZERGMk9XVm5NV0pyWTNRNWNXdzJaZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxWdWRHbDBiR1ZrSUdSbGMybG5iaTV3Ym1jaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoxVnVkR2wwYkdWa0pUSXdaR1Z6YVdkdUxuQnVad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRG1sdFlXZGxMM0J1WndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyNi0wOC0wMlQxNDo0MTo0Ny4zMjRaIiwicHVyIjoiYmxvYl9rZXkifX0=--9accb9d72e61ad1802045da0f173717e89a22804/Untitled%20design.png" for 127.0.0.1 at 2026-08-02 19:39:19 +0500
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Untitled design"}
+Completed 304 Not Modified in 955ms (ActiveRecord: 0.0ms | Allocations: 443)
+
+
+Started GET "/user" for 127.0.0.1 at 2026-08-02 19:39:23 +0500
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:users,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 6.7ms | Allocations: 2434)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 23)
+  [1m[36mProject Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1 /*application:CodeCritic,controller:users,action:show*/[0m  [["user_id", 10]]
+  ↳ app/views/users/show.html.erb:58
+  Rendered users/show.html.erb within layouts/application (Duration: 13.2ms | Allocations: 5319)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 6108)
+Completed 200 OK in 891ms (Views: 15.2ms | ActiveRecord: 1.6ms | Allocations: 8191)
+
+
+Started POST "/code_files/18/review" for 127.0.0.1 at 2026-08-02 19:39:26 +0500
+Processing by ReviewsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "code_file_id"=>"18"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCodeFile Load (0.4ms)[0m  [1m[34mSELECT "code_files".* FROM "code_files" WHERE "code_files"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `create'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."code_file_id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["code_file_id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:9:in `create'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/policies/review_policy.rb:6:in `create?'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/policies/review_policy.rb:6:in `create?'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."code_file_id" = $1 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["code_file_id", 18]]
+  ↳ app/controllers/reviews_controller.rb:12:in `create'
+HF AI HTTP Error: 404 - Not Found
+HF Raw Response: {"error"=>"HTTP 404: Not Found"}
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN /*application:CodeCritic,controller:reviews,action:create*/[0m
+  ↳ app/controllers/reviews_controller.rb:22:in `create'
+  [1m[36mCodeFile Load (0.5ms)[0m  [1m[34mSELECT "code_files".* FROM "code_files" WHERE "code_files"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:reviews,action:create*/[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:22:in `create'
+  [1m[36mReview Create (4.7ms)[0m  [1m[32mINSERT INTO "reviews" ("status", "result", "summary", "code_file_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id" /*application:CodeCritic,controller:reviews,action:create*/[0m  [["status", "completed"], ["result", "[{\"line\":1,\"severity\":\"critical\",\"issue\":\"API Error: HTTP 404: Not Found\",\"suggestion\":\"Check your API key or try again\"}]"], ["summary", "Review could not be completed."], ["code_file_id", 18], ["created_at", "2026-08-02 14:39:28.397515"], ["updated_at", "2026-08-02 14:39:28.397515"]]
+  ↳ app/controllers/reviews_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*application:CodeCritic,controller:reviews,action:create*/[0m
+  ↳ app/controllers/reviews_controller.rb:22:in `create'
+Redirected to http://127.0.0.1:3000/code_files/18
+Completed 302 Found in 1874ms (ActiveRecord: 11.1ms | Allocations: 14117)
+
+
+Started GET "/code_files/18" for 127.0.0.1 at 2026-08-02 19:39:29 +0500
+Processing by CodeFilesController#show as TURBO_STREAM
+  Parameters: {"id"=>"18"}
+  [1m[36mCodeFile Load (0.3ms)[0m  [1m[34mSELECT "code_files".* FROM "code_files" WHERE "code_files"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:57:in `set_code_file'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/code_files_controller.rb:52:in `set_project'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering code_files/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 7.1ms | Allocations: 2342)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 24)
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."code_file_id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["code_file_id", 18], ["LIMIT", 1]]
+  ↳ app/views/code_files/show.html.erb:38
+  [1m[36mComment Count (4.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."review_id" = $1 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["review_id", 8]]
+  ↳ app/views/code_files/show.html.erb:203
+  [1m[36mComment Load (3.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."review_id" = $1 ORDER BY "comments"."created_at" ASC /*application:CodeCritic,controller:code_files,action:show*/[0m  [["review_id", 8]]
+  ↳ app/views/code_files/show.html.erb:224
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 28)
+  [1m[36mComment Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "comments" WHERE "comments"."review_id" = $1 LIMIT $2 /*application:CodeCritic,controller:code_files,action:show*/[0m  [["review_id", 8], ["LIMIT", 1]]
+  ↳ app/views/code_files/show.html.erb:227
+  Rendered code_files/show.html.erb within layouts/application (Duration: 54.7ms | Allocations: 9060)
+  Rendered layout layouts/application.html.erb (Duration: 57.0ms | Allocations: 9805)
+Completed 200 OK in 909ms (Views: 46.3ms | ActiveRecord: 12.7ms | Allocations: 12828)
+
+
+Started GET "/user" for 127.0.0.1 at 2026-08-02 19:39:31 +0500
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:users,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 7.6ms | Allocations: 2346)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 20)
+  [1m[36mProject Count (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1 /*application:CodeCritic,controller:users,action:show*/[0m  [["user_id", 10]]
+  ↳ app/views/users/show.html.erb:58
+  Rendered users/show.html.erb within layouts/application (Duration: 16.6ms | Allocations: 4219)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 4963)
+Completed 200 OK in 1172ms (Views: 17.0ms | ActiveRecord: 2.5ms | Allocations: 6707)
+
+
+Started GET "/user" for 127.0.0.1 at 2026-08-02 19:39:44 +0500
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:users,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 7.8ms | Allocations: 2342)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 20)
+  [1m[36mProject Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1 /*application:CodeCritic,controller:users,action:show*/[0m  [["user_id", 10]]
+  ↳ app/views/users/show.html.erb:58
+  Rendered users/show.html.erb within layouts/application (Duration: 14.4ms | Allocations: 4214)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 4958)
+Completed 200 OK in 937ms (Views: 15.6ms | ActiveRecord: 1.4ms | Allocations: 6712)
+
+
+Started GET "/user" for 127.0.0.1 at 2026-08-02 19:39:47 +0500
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:users,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 8.4ms | Allocations: 2342)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 20)
+  [1m[36mProject Count (2.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1 /*application:CodeCritic,controller:users,action:show*/[0m  [["user_id", 10]]
+  ↳ app/views/users/show.html.erb:58
+  Rendered users/show.html.erb within layouts/application (Duration: 19.5ms | Allocations: 4214)
+  Rendered layout layouts/application.html.erb (Duration: 27.8ms | Allocations: 4958)
+Completed 200 OK in 821ms (Views: 32.0ms | ActiveRecord: 3.8ms | Allocations: 6716)
+
+
+Started GET "/user" for 127.0.0.1 at 2026-08-02 19:39:51 +0500
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:users,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 8.4ms | Allocations: 2342)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 20)
+  [1m[36mProject Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1 /*application:CodeCritic,controller:users,action:show*/[0m  [["user_id", 10]]
+  ↳ app/views/users/show.html.erb:58
+  Rendered users/show.html.erb within layouts/application (Duration: 15.5ms | Allocations: 4214)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 4958)
+Completed 200 OK in 1583ms (Views: 20.5ms | ActiveRecord: 2.0ms | Allocations: 6734)
+
+
+Started GET "/user" for 127.0.0.1 at 2026-08-02 19:39:55 +0500
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4 /*application:CodeCritic,controller:users,action:show*/[0m  [["record_id", 10], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2 /*application:CodeCritic,controller:users,action:show*/[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:27
+  Rendered shared/_navbar.html.erb (Duration: 7.2ms | Allocations: 2342)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 20)
+  [1m[36mProject Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = $1 /*application:CodeCritic,controller:users,action:show*/[0m  [["user_id", 10]]
+  ↳ app/views/users/show.html.erb:58
+  Rendered users/show.html.erb within layouts/application (Duration: 13.1ms | Allocations: 4214)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 4958)
+Completed 200 OK in 859ms (Views: 14.0ms | ActiveRecord: 1.4ms | Allocations: 6717)
+
+
