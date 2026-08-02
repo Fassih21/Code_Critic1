@@ -1,7 +1,7 @@
 class CodeFilesController < ApplicationController
-  #before_action :set_code_file, only: [:show, :edit, :update, :destroy]
+  before_action :set_code_file, only: [:show, :edit, :update, :destroy]
   before_action :set_project
-  before_action :authorize_code_file, only: [:show, :create, :update, :destroy]
+  #before_action :authorize_code_file, only: [:show, :create, :update, :destroy]
   before_action :authenticate_user!
   def index
     @code_files = @project.code_files
