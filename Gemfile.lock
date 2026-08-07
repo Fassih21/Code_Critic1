@@ -109,6 +109,7 @@ GEM
       railties (>= 7.0)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.6.2)
     dotenv (3.2.0)
     drb (2.2.3)
     ed25519 (1.4.0)
@@ -178,9 +179,7 @@ GEM
     mini_magick (5.3.2)
       logger
     mini_mime (1.1.5)
-    minitest (6.0.2)
-      drb (~> 2.0)
-      prism (~> 1.5)
+    minitest (5.27.0)
     msgpack (1.8.0)
     mutex_m (0.3.0)
     net-imap (0.6.3)
@@ -271,6 +270,23 @@ GEM
       actionpack (>= 7.0)
       railties (>= 7.0)
     rexml (3.4.4)
+    rspec-core (3.13.6)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.8)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-rails (6.1.5)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.13)
+      rspec-expectations (~> 3.13)
+      rspec-mocks (~> 3.13)
+      rspec-support (~> 3.13)
+    rspec-support (3.13.7)
     rubocop (1.85.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
@@ -382,12 +398,14 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
+  minitest (~> 5.25)
   pg (~> 1.1)
   prism (~> 1.5)
   propshaft
   puma (>= 5.0)
   pundit (~> 2.0)
   rails (~> 7.0.0)
+  rspec-rails (~> 6.0)
   rubocop-rails-omakase
   selenium-webdriver
   solid_cable

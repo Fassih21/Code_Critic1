@@ -7,6 +7,8 @@ gem "propshaft"
 gem 'prism', '~> 1.5'
 gem 'pundit', '~> 2.0'
 gem 'faker', '~> 2.20'
+gem "minitest", "~> 5.25"
+gem "rspec-rails", "~> 6.0"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
