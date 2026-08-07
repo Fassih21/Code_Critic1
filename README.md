@@ -106,7 +106,6 @@ http://localhost:3000
 
 ## Known Limitations / Next Steps
 
-- No authorization layer yet (e.g. Pundit) — currently access is scoped only through `current_user.projects`, not policy-checked
 - `AiReviewServices` has no automated tests around API failure/timeout handling
 - Only one review is kept per code file (older reviews are destroyed rather than versioned)
 
