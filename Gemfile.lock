@@ -310,6 +310,8 @@ GEM
       ffi (~> 1.12)
       logger
     securerandom (0.4.1)
+    shoulda-matchers (6.5.0)
+      activesupport (>= 5.2.0)
     solid_cable (1.0.3)
       rails (< 9)
     solid_cache (0.7.0)
@@ -384,6 +386,7 @@ DEPENDENCIES
   rails (~> 7.0.0)
   rspec-rails
   rubocop-rails-omakase
+  shoulda-matchers
   solid_cable
   solid_cache
   solid_queue
