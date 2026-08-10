@@ -26,4 +26,4 @@ Rspec.describe User, type: :model do
             expect(user.name).to eq("John Doe")
         end
     end
-
+end
