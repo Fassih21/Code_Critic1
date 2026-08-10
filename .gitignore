@@ -4,3 +4,4 @@
 !/app/assets/builds/.keep
 master.key
 config/master.key
+/config/master.key

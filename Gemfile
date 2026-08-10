@@ -7,6 +7,16 @@ gem "propshaft"
 gem 'prism', '~> 1.5'
 gem 'pundit', '~> 2.0'
 gem 'faker', '~> 2.20'
+
+group :development, :test do
+  gem "rspec-rails"
+end
+group :development, :test do
+  gem "factory_bot_rails"
+end
+group :test do
+  gem "shoulda-matchers"
+end
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -59,11 +69,6 @@ group :development do
   gem "web-console"
 end
 
-group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "factory_bot_rails" 
-end
+
 
 gem "tailwindcss-rails", "~> 4.4"
