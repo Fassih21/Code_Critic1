@@ -1,9 +1,9 @@
 require "rails_helper"
 
-Rspec.describe User, type: :model do
+RSpec.describe User, type: :model do
     it "is valid with valid attibutes" do
         user = create(:user)
-        expect(user).to be valid
+        expect(user).to be_valid
     end
     
     describe "associations" do
@@ -13,7 +13,6 @@ Rspec.describe User, type: :model do
     end
 
     describe "validations" do
-        user = build(:user)
         it {should validate_presence_of(:name)}
         it {should validate_presence_of(:email)}
         it {should validate_presence_of(:password)}

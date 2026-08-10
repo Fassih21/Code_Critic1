@@ -5,7 +5,6 @@ RSpec.describe Comment, type: :model do
         it{should belong_to(:user)}
     end
     describe "validation" do
-        comment = build(:comment)
         it{should validate_presence_of(:content)}
         it{should validate_presence_of(:line_number)}
     end

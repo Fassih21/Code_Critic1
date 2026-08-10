@@ -6,7 +6,6 @@ RSpec.describe Review, type: :model do
     end
 
     describe "validation" do
-        review = build(:review)
         it{should validate_presence_of(:status)}
         it{should validate_presence_of(:result)}
     end
