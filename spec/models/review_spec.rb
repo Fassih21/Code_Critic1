@@ -1,7 +1,7 @@
 require "rails_helper"
 RSpec.describe Review, type: :model do
-    describe "assocation" do
-        it{should belong to(:codefile)}
+    describe "association" do
+        it{should belong_to(:code_file)}
         it{should have_many(:comments).dependent(:destroy)}
     end
 
