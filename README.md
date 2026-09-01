@@ -143,7 +143,4 @@ http://localhost:3000
 - Only one review is kept per code file (older reviews are destroyed rather than versioned)
 - Controller/request specs are not yet written — current test coverage is model-level only
 
-## Contact
-
-Feel free to reach out for feedback, collaboration, or freelance/internship opportunities.
 
